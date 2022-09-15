@@ -1,11 +1,17 @@
 import styled from "styled-components";
-import { borderRadius, colors, pseudoElementCfg, transition } from "../../globalStyle";
+import { borderRadius, colors, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
 
 export const Wrapper = styled.header`
   width: 100%;
   height: 70px;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 9999;
 `
 
 export const List = styled.ul`
@@ -22,7 +28,11 @@ export const Nav = styled.nav`
 `
 
 export const Item = styled.li`
-
+  a {
+    color: ${colors.textLight};
+    font-size: ${fontSize.small};
+    font-weight: 600;
+  }
 `
 
 export const Hamburger = styled.button`

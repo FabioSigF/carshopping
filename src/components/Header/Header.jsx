@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../../context/ContextProvider'
 import { Container } from '../../globalStyle';
+import Button from '../Button';
 import Logo from '../Logo'
 import MenuMobile from '../MenuMobile';
 import { Hamburger, Item, List, Nav, Wrapper } from './Header.styles'
@@ -70,15 +71,11 @@ export default function Navbar() {
               </Item>
               {/*apenas deslogado */}
               <Item>
-                <Link to='/login'>
-                  Login
-                </Link>
+                <Button link={'/login'} btnStyle='primary'>Login</Button>
               </Item>
               {/*apenas deslogado */}
               <Item>
-                <Link to='/register'>
-                  Register
-                </Link>
+                <Button link={'/register'} btnStyle='outline'>Register</Button>
               </Item>
             </List>
           )}

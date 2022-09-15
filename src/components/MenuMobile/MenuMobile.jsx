@@ -23,40 +23,40 @@ export default function MenuMobile() {
       </Header>
       <List>
         <Item>
-          <Link to='/'>
+          <Link to='/' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             Home
           </Link>
         </Item>
-        <Item>
-          <Link to='/inventory'>
+        <Item >
+          <Link to='/inventory' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             Inventory
           </Link>
         </Item>
         <Item>
-          <Link to='/service'>
+          <Link to='/service' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             Service
           </Link>
         </Item>
         <Item>
-          <Link to='/about'>
+          <Link to='/about' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             About Us
           </Link>
         </Item>
         {/*apenas logado */}
         <Item>
-          <Link to='/dashboard'>
+          <Link to='/dashboard' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             Dashboard
           </Link>
         </Item>
         {/*apenas deslogado */}
         <Item>
-          <Link to='/login'>
+          <Link to='/login' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             Login
           </Link>
         </Item>
         {/*apenas deslogado */}
         <Item>
-          <Link to='/register'>
+          <Link to='/register' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             Register
           </Link>
         </Item>

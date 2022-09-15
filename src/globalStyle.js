@@ -12,6 +12,7 @@ export const colors = {
   secondary: '#111010',
   text: '#575757',
   textDark: '#111010',
+  textLight: '#ffffffcc',
   titleDark: '#0b163f',
   //accent: '#077765',
   success: '#5cc9a7',
