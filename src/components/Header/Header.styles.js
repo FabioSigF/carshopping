@@ -2,7 +2,10 @@ import styled from "styled-components";
 import { borderRadius, colors, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
 
 export const Wrapper = styled.header`
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   width: 100%;
+  max-width: 100vw;
   height: 70px;
   display: flex;
   align-items: center;
@@ -10,7 +13,6 @@ export const Wrapper = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  background-color: transparent;
   z-index: 9999;
 `
 
@@ -32,6 +34,10 @@ export const Item = styled.li`
     color: ${colors.textLight};
     font-size: ${fontSize.small};
     font-weight: 600;
+    transition: ${transition};
+    &:hover {
+      color: ${colors.white};
+    }
   }
 `
 

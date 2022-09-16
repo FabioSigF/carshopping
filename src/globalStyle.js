@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose } from 'react-icons/io5'
-import { FaApple, FaCarSide, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
+import { FaApple, FaCarSide, FaCheck, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
 import { FiPhoneCall } from 'react-icons/fi'
 import { GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
@@ -14,6 +14,7 @@ export const colors = {
   textDark: '#111010',
   textLight: '#ffffffcc',
   titleDark: '#0b163f',
+  titleLight: '#fff',
   //accent: '#077765',
   success: '#5cc9a7',
   //info: '#50b5ff',
@@ -43,7 +44,9 @@ export const fontFamily = {
 export const fontSize = {
   small: '.875rem',
   body: '1rem',
-  titleSmall: '1.375rem'
+  titleSmall: '1.375rem',
+  title: '2rem',
+  titleLarge: '3.5rem',
 }
 
 export const transition = {
@@ -61,7 +64,9 @@ export const deviceSize = {
   mobileM: '425px',
   mobileL: '576px',
   tablet: '768px',
+  laptopS: '992px',
   laptop: '1024px',
+  laptopM: '1200px',
   laptopL: '1440px',
   desktop: '2560px'
 }
@@ -85,6 +90,7 @@ export const iconsList = {
   search: <IoSearch />,
   calculator: <IoCalculatorOutline />,
   close: <IoClose />,
+  check: <FaCheck />,
   //brand
   googlePlay: <FaGooglePlay />,
   apple: <FaApple />,
@@ -97,10 +103,10 @@ export const iconsList = {
 }
 
 export const Container = styled.div `
+    box-sizing: border-box;
     padding-left: 6%;
     padding-right: 6%;
     width: 100%;
-
     @media screen and (min-width: ${deviceSize.mobileL}) {
       padding-left: 0;
       padding-right: 0;
@@ -112,6 +118,9 @@ export const Container = styled.div `
     }
     @media screen and (min-width: ${deviceSize.laptop}) {
       max-width: 960px;
+    }
+    @media screen and (min-width: ${deviceSize.laptopM}) {
+      max-width: 1140px;
     }
     @media screen and (min-width: ${deviceSize.laptopL}) {
       max-width: 1320px;
@@ -158,6 +167,5 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     font-family: ${fontFamily.sansSerif};
   }
-
 `
 

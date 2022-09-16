@@ -11,11 +11,15 @@ export const Wrapper = styled.button`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  color: ${colors.white};
+  gap: 1rem;
 
   padding-left: 1rem;
   padding-right: 1rem;
-  
+
+  &:hover {
+    color: ${colors.primary}
+  }
 
   ${props => 
     props.btnStyle === 'primary' &&
@@ -51,5 +55,11 @@ export const Wrapper = styled.button`
       background-color: transparent;
       border: 1px solid ${props => props.borderColor ? props.borderColor : colors.lightGray};
       color: ${props => props.color ? props.color : colors.white};
+    `}
+
+  ${props => 
+    props.height === 'large' &&
+    css`
+      height: 3.5rem
     `}
 `

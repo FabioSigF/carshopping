@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
+import Footer from './components/Footer/Footer'
 import Header from './components/Header'
 import CarDetail from './pages/CarDetail/CarDetail'
 import Cart from './pages/Cart/Cart'
@@ -32,6 +33,7 @@ export default function App() {
           <Route path='/login' element={<Login />} /*cond p login *//>
           <Route path='/register' element={<Register />} />
         </Routes>
+      <Footer />
       </BrowserRouter>
     </div>
   )
