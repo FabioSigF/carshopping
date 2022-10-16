@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { useStateContext } from '../../context/ContextProvider'
+import { NavLink } from 'react-router-dom';
 import { Container } from '../../globalStyle';
 import Button from '../Button';
 import Logo from '../Logo'
 import MenuMobile from '../MenuMobile';
+
+//hooks
+import { useStateContext } from '../../context/ContextProvider'
+import { useAuthentication } from '../../hooks/useAuthentication';
+
+//styles
 import { Hamburger, Item, List, Nav, Wrapper } from './Header.styles'
 
 export default function Navbar() {
+
   const [showMenuDesktop, setShowMenuDesktop] = useState(false);
+  const { user } = useStateContext()
+  const { logout } = useAuthentication()
   const { screenSize, setScreenSize, openMobileMenu, setOpenMobileMenu } = useStateContext();
 
   //Save window width
@@ -36,6 +44,7 @@ export default function Navbar() {
     e.preventDefault()
     setOpenMobileMenu(!openMobileMenu);
   }
+
   return (
     <Wrapper>
       <Container>
@@ -44,39 +53,48 @@ export default function Navbar() {
           {showMenuDesktop && (
             <List>
               <Item>
-                <Link to='/'>
+                <NavLink to='/'>
                   Home
-                </Link>
+                </NavLink>
               </Item>
               <Item>
-                <Link to='/inventory'>
+                <NavLink to='/inventory'>
                   Inventory
-                </Link>
+                </NavLink>
               </Item>
               <Item>
-                <Link to='/service'>
-                  Service
-                </Link>
-              </Item>
-              <Item>
-                <Link to='/about'>
+                <NavLink to='/about'>
                   About Us
-                </Link>
+                </NavLink>
               </Item>
-              {/*apenas logado */}
               <Item>
-                <Link to='/dashboard'>
-                  Dashboard
-                </Link>
+                <NavLink to='/advertise'>
+                  Advertise
+                </NavLink>
               </Item>
-              {/*apenas deslogado */}
-              <Item>
-                <Button link={'/login'} btnStyle='primary'>Login</Button>
-              </Item>
-              {/*apenas deslogado */}
-              <Item>
-                <Button link={'/register'} btnStyle='outline'>Register</Button>
-              </Item>
+              {user && (
+                <>
+                  <Item>
+                    <NavLink to='/dashboard'>
+                      Dashboard
+                    </NavLink>
+                  </Item>
+                  <Item>
+                    <a href="#!" onClick={logout}>Logout</a>
+                  </Item>
+                </>
+              )}
+              {!user && (
+                <>
+                  <Item>
+                    <Button link={'/login'} btnStyle='primary'>Login</Button>
+                  </Item>
+
+                  <Item>
+                    <Button link={'/register'} btnStyle='outline'>Register</Button>
+                  </Item>
+                </>
+              )}
             </List>
           )}
           {!showMenuDesktop && (
@@ -84,7 +102,7 @@ export default function Navbar() {
               <Hamburger onClick={(e) => toggleMenuMobile(e)}>
                 <div></div>
               </Hamburger>
-              <MenuMobile/>
+              <MenuMobile />
             </>
           )}
         </Nav>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, iconsList } from '../../globalStyle'
-import { Background, Content, Hero, Image, ImageContainer, List, Subtitle, Title, Wrapper } from './Home.styles'
+import { Background, Cars, Content, Hero, Image, ImageContainer, List, Search, Subtitle, Title, Wrapper } from './Home.styles'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
@@ -11,15 +11,22 @@ import Button from '../../components/Button/Button'
 import heroImg1 from '../../assets/img/home/hero-car-1.png'
 import heroImg2 from '../../assets/img/home/hero-car-2.png'
 import heroImg3 from '../../assets/img/home/hero-car-3.png'
+import SearchForm from '../../components/SearchForm/SearchForm'
+import WhyUs from '../../components/WhyUs/WhyUs'
+import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard'
 export default function Home() {
+
+  const { documents: advertises, loading } = useFetchDocuments("advertises")
+
   return (
     <Wrapper>
       <Background>
         <Container>
-          <Swiper 
-            pagination={true} 
+          <Swiper
+            pagination={true}
             spaceBetween={100}
-            modules={[Pagination, Autoplay]} 
+            modules={[Pagination, Autoplay]}
             autoplay={{
               delay: 10000,
               pauseOnMouseEnter: true,
@@ -82,6 +89,24 @@ export default function Home() {
           </Swiper>
         </Container>
       </Background>
+      <Container>
+        <Search>
+          <SearchForm />
+        </Search>
+        <WhyUs />
+        <Cars>
+          {loading && <p>Carregando...</p>}
+          {advertises &&
+            advertises.map((advertise) => (
+            <AdvertiseCard 
+              advertise={advertise}
+            />
+          ))}
+            {advertises && advertises.lenght === 0 && (
+              <p>Não foram encontrados anuncios...</p>
+            )}
+        </Cars>
+      </Container>
     </Wrapper>
   )
 }

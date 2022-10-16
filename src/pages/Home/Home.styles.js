@@ -14,9 +14,11 @@ export const Background = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  min-height: 120vh;
+  padding-top: 1.8rem;
+  padding-bottom: 100px;
   background: url(${bg});
   background-size: cover;
+
   &::before {
     ${pseudoElementCfg}
     width: 100%;
@@ -126,5 +128,28 @@ export const Image = styled.img`
     max-width: 800px;
     position: absolute;
     right: 0;
+  }
+`
+
+export const Search = styled.section `
+  position: relative;
+  margin-top: -70px;
+  z-index: 1;
+  margin-bottom: 2rem;
+`
+
+export const Cars = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  @media screen and (min-width: ${deviceSize.tablet}){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: ${deviceSize.laptop}){
+    grid-template-columns: repeat(3, 1fr);
   }
 `

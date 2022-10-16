@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { borderRadius, colors, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
 
 export const Wrapper = styled.header`
-  background-color: transparent;
+  background-color: ${colors.secondary};
   border-bottom: 1px solid rgba(255,255,255,0.06);
   width: 100%;
   max-width: 100vw;
@@ -35,7 +35,8 @@ export const Item = styled.li`
     font-size: ${fontSize.small};
     font-weight: 600;
     transition: ${transition};
-    &:hover {
+    &:hover,
+    &.active {
       color: ${colors.white};
     }
   }

@@ -4,11 +4,12 @@ import { FaApple, FaCarSide, FaCheck, FaFacebookF, FaGooglePlay, FaHandPointUp, 
 import { FiPhoneCall } from 'react-icons/fi'
 import { GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
-
+import chevronDown from './assets/img/icons/chevron-down.svg'
 export const colors = {
   body: '#F8F8F8',
   bodyBg: '#FFF',
   primary: '#FC0012',
+  primaryLight: '#FFF2F3',
   secondary: '#111010',
   text: '#575757',
   textDark: '#111010',
@@ -30,6 +31,7 @@ export const colors = {
   white: '#FFF',
   black: '#111010',
   lightGray: '#e8e8e8',
+  gray: '#7a7a7a',
 }
 
 export const borderRadius = {
@@ -42,8 +44,10 @@ export const fontFamily = {
 }
 
 export const fontSize = {
+  smallX: '.7rem',
   small: '.875rem',
   body: '1rem',
+  bodyLarge: '1.25rem',
   titleSmall: '1.375rem',
   title: '2rem',
   titleLarge: '3.5rem',
@@ -127,6 +131,15 @@ export const Container = styled.div `
     }
 `
 
+export const ErrorWarning = styled.p `
+  text-align: center;
+  border-radius: ${borderRadius.small};
+  padding: 1rem;
+  border: 1px solid ${colors.lightGray};
+  color: ${colors.white};
+  background-color: ${colors.danger};
+`
+
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -147,6 +160,10 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     font-family: ${fontFamily.sansSerif};
   }
+  select {
+    font-family: ${fontFamily.sansSerif};
+    appearance: none;
+  }
   ul, li {
     list-style: none;
   }
@@ -154,18 +171,55 @@ export const GlobalStyle = createGlobalStyle`
   input::placeholder,
   textarea::placeholder {
     font-family: ${fontFamily.sansSerif};
-    color: ${colors.text};
+    color: ${colors.lightGray};
     font-size: ${fontSize.small};
   }
 
   input:focus,
-  textarea:focus{
+  textarea:focus,
+  select:focus{
     outline: none;
   }
 
-  a {
+  a, 
+  textarea {
     text-decoration: none;
     font-family: ${fontFamily.sansSerif};
+  }
+  input {
+    background-color: ${colors.bodyBg};
+    border-radius: ${borderRadius.small};
+    border: 1px solid ${colors.lightGray};
+    padding: 1rem;
+  }
+  select {
+    border: 1px solid ${colors.lightGray};
+    border-radius: ${borderRadius.small};
+    color: ${colors.text};
+    font-size: ${fontSize.small};
+    padding: .75rem 2rem .75rem .75rem;
+    background-image: url(${chevronDown});
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1rem);
+
+  }
+
+  option {
+    font-size: ${fontSize.small};
+
+    &:disabled {
+      color: ${colors.lightGray};
+    }
+  }
+
+  textarea {
+    background-color: ${colors.bodyBg};
+    border: 1px solid ${colors.lightGray};
+    border-radius: ${borderRadius.small};
+    padding: 1rem;
+    height: 100px;
+    resize: none;
   }
 `
 

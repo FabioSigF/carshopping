@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors, fontSize } from "../../globalStyle";
+import { borderRadius, colors, fontSize } from "../../globalStyle";
 
 export const Wrapper = styled.button`
 
@@ -11,6 +11,7 @@ export const Wrapper = styled.button`
 
   display: flex;
   align-items: center;
+  justify-content: center;
   color: ${colors.white};
   gap: 1rem;
 
@@ -50,11 +51,28 @@ export const Wrapper = styled.button`
   `}
 
   ${props =>
+    props.btnStyle === 'primaryDark' &&
+    css`
+      background-color: ${colors.black};
+      border-radius: ${borderRadius.small};
+      color: ${colors.white};
+      justify-content: center;
+      &:hover {
+        background-color: ${colors.primary};
+        color: ${colors.white};
+      }
+    `}
+
+  ${props =>
     props.btnStyle === 'outline' &&
     css`
       background-color: transparent;
       border: 1px solid ${props => props.borderColor ? props.borderColor : colors.lightGray};
       color: ${props => props.color ? props.color : colors.white};
+
+      &:hover {
+        color: ${colors.white}
+      }
     `}
 
   ${props => 
