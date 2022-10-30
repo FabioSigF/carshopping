@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, colors, fontSize } from "../../globalStyle";
+import { borderRadius, colors, deviceSize, fontSize } from "../../globalStyle";
 
 
 export const Wrapper = styled.section`
@@ -8,6 +8,13 @@ export const Wrapper = styled.section`
   gap: 2rem;
 
   margin-bottom: 3rem;
+
+  @media screen and (min-width: ${deviceSize.laptopS}){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+  }
 `
 
 export const ContentWrapper = styled.div`
@@ -19,14 +26,17 @@ export const Title = styled.h2`
   font-size: ${fontSize.bodyLarge};
   font-weight: 600;
   margin-bottom: 1rem;
+  
 `
 
 export const Subtitle = styled.h3`
   color: ${colors.titleDark};
   font-size: ${fontSize.titleSmall};
   line-height: calc(${fontSize.bodyLarge} + .5rem);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+
+
 `
 
 export const Text = styled.p`
