@@ -22,7 +22,16 @@ export const Wrapper = styled.button`
     color: ${colors.primary}
   }
 
-  ${props => 
+  ${props =>
+    props.color === 'primary' &&
+    css`
+      color: ${colors.black};
+      &:hover {
+        color: ${colors.primary}
+      }
+    `}
+
+  ${props =>
     props.btnStyle === 'primary' &&
     css`
       background-color: ${colors.primary};
@@ -75,7 +84,7 @@ export const Wrapper = styled.button`
       }
     `}
 
-  ${props => 
+  ${props =>
     props.height === 'large' &&
     css`
       height: 3.5rem

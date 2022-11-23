@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, iconsList } from '../../globalStyle'
-import { Background, Cars, Content, Hero, Image, ImageContainer, List, Search, Subtitle, Title, Wrapper } from './Home.styles'
+import { Background, Cars, CarsContainer, Content, Hero, Image, ImageContainer, List, Search, Subtitle, Title, Wrapper } from './Home.styles'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
@@ -93,19 +93,25 @@ export default function Home() {
         <Search>
           <SearchForm />
         </Search>
-        <WhyUs />
         <Cars>
-          {loading && <p>Carregando...</p>}
-          {advertises &&
-            advertises.map((advertise) => (
-            <AdvertiseCard 
-              advertise={advertise}
-            />
-          ))}
+          <CarsContainer>
+            {loading && <p>Carregando...</p>}
+            {advertises &&
+              advertises.map((advertise) => (
+                <AdvertiseCard
+                  advertise={advertise}
+                />
+              ))}
             {advertises && advertises.lenght === 0 && (
               <p>Não foram encontrados anuncios...</p>
             )}
+          </CarsContainer>
+          <Button
+            btnStyle={'mainCta'}
+            color={'primary'}
+          >View More</Button>
         </Cars>
+        <WhyUs />
       </Container>
     </Wrapper>
   )

@@ -142,8 +142,17 @@ export const Cars = styled.div `
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+`
+
+export const CarsContainer = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
+  position: relative;
 
   @media screen and (min-width: ${deviceSize.tablet}){
     display: grid;
@@ -151,5 +160,6 @@ export const Cars = styled.div `
   }
   @media screen and (min-width: ${deviceSize.laptop}){
     grid-template-columns: repeat(3, 1fr);
+  
   }
 `

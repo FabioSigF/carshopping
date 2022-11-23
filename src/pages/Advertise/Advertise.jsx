@@ -134,6 +134,7 @@ export default function Advertise() {
   // window.addEventListener('scroll', scrollActive)
 
   // scrollActive()
+  
   return (
     <Wrapper>
       <Container className='advertisePageContainer'>
@@ -559,7 +560,7 @@ export default function Advertise() {
                 <Input
                   required
                   type='number'
-                  value={price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+                  value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </Field>

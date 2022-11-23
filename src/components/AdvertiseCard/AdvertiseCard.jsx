@@ -5,6 +5,7 @@ import { Content, Details, IconBox, Price, Seller, Thumb, ThumbContainer, Title,
 
 export default function AdvertiseCard({ advertise }) {
 
+  console.log(advertise);
   return (
     <Wrapper>
       <Year>{advertise.year}</Year>

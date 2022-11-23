@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-
+  margin-top: 3rem;
   margin-bottom: 3rem;
 
   @media screen and (min-width: ${deviceSize.laptopS}){
@@ -18,24 +18,6 @@ export const Wrapper = styled.section`
 `
 
 export const ContentWrapper = styled.div`
-
-`
-
-export const Title = styled.h2`
-  color: ${colors.primary};
-  font-size: ${fontSize.bodyLarge};
-  font-weight: 600;
-  margin-bottom: 1rem;
-  
-`
-
-export const Subtitle = styled.h3`
-  color: ${colors.titleDark};
-  font-size: ${fontSize.titleSmall};
-  line-height: calc(${fontSize.bodyLarge} + .5rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-
 
 `
 

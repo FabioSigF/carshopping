@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card, CardHeader, CardIcon, CardList, CardText, CardTitle, ContentWrapper, Image, Subtitle, Text, Title, Wrapper } from './WhyUs.styles'
+import { Card, CardHeader, CardIcon, CardList, CardText, CardTitle, ContentWrapper, Image, Text, Wrapper } from './WhyUs.styles'
 
 import imageContent from '../../assets/img/home/car-red.png'
-import { iconsList } from '../../globalStyle'
+import { iconsList, Subtitle, Title } from '../../globalStyle'
 
 
 export default function WhyUs() {

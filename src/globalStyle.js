@@ -106,7 +106,7 @@ export const iconsList = {
 
 }
 
-export const Container = styled.div `
+export const Container = styled.div`
     box-sizing: border-box;
     padding-left: 6%;
     padding-right: 6%;
@@ -131,7 +131,7 @@ export const Container = styled.div `
     }
 `
 
-export const ErrorWarning = styled.p `
+export const ErrorWarning = styled.p`
   text-align: center;
   border-radius: ${borderRadius.small};
   padding: 1rem;
@@ -140,6 +140,26 @@ export const ErrorWarning = styled.p `
   background-color: ${colors.danger};
 `
 
+export const Title = styled.h2`
+  color: ${colors.primary};
+  font-size: ${fontSize.bodyLarge};
+  font-weight: 600;
+  margin-bottom: 1rem;
+  
+`
+
+export const Subtitle = styled.h3`
+  color: ${colors.titleDark};
+  font-size: ${fontSize.titleSmall};
+  line-height: calc(${fontSize.bodyLarge} + .5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+
+  @media screen and (min-width: ${deviceSize.laptopM}){
+    font-size: ${fontSize.title};
+    line-height: calc(${fontSize.title} + .5rem);
+  }
+`
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
