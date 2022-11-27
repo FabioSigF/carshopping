@@ -18,12 +18,9 @@ export const Wrapper = styled.section`
 `
 
 export const ContentWrapper = styled.div`
-
-`
-
-export const Text = styled.p`
-  font-size: ${fontSize.body};
-  line-height: calc(${fontSize.body} + .5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
 `
 

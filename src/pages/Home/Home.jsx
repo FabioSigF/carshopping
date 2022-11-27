@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, iconsList } from '../../globalStyle'
-import { Background, Cars, CarsContainer, Content, Hero, Image, ImageContainer, List, Search, Subtitle, Title, Wrapper } from './Home.styles'
+import { Background, Cars, CarsContainer, Content, Hero, Image, ImageContainer, List, Subtitle, Title, Wrapper } from './Home.styles'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
@@ -11,10 +11,11 @@ import Button from '../../components/Button/Button'
 import heroImg1 from '../../assets/img/home/hero-car-1.png'
 import heroImg2 from '../../assets/img/home/hero-car-2.png'
 import heroImg3 from '../../assets/img/home/hero-car-3.png'
-import SearchForm from '../../components/SearchForm/SearchForm'
 import WhyUs from '../../components/WhyUs/WhyUs'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard'
+import Feedback from '../../components/Feedback/Feedback'
+import News from '../../components/News/News'
 export default function Home() {
 
   const { documents: advertises, loading } = useFetchDocuments("advertises")
@@ -90,9 +91,16 @@ export default function Home() {
         </Container>
       </Background>
       <Container>
-        <Search>
-          <SearchForm />
-        </Search>
+        <WhyUs />
+      </Container>
+      {/*We're Are Ensuring The Best Customer Experience (car-dealership-2.html)*/}
+      {/*Best Seeling Brands (car-dealership-2.html)
+      + 
+      Discounts - Aside (car-dealership-2.html)
+      */}
+      {/*Our Professional Staff (index-3.html) */}
+      {/*Buy Your Car Quickly And Easily (car-dealership-2.html) */}
+      <Container>
         <Cars>
           <CarsContainer>
             {loading && <p>Carregando...</p>}
@@ -111,7 +119,10 @@ export default function Home() {
             color={'primary'}
           >View More</Button>
         </Cars>
-        <WhyUs />
+      </Container>
+      <Feedback />
+      <Container>
+        <News />
       </Container>
     </Wrapper>
   )

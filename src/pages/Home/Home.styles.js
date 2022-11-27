@@ -131,13 +131,6 @@ export const Image = styled.img`
   }
 `
 
-export const Search = styled.section `
-  position: relative;
-  margin-top: -70px;
-  z-index: 1;
-  margin-bottom: 2rem;
-`
-
 export const Cars = styled.div `
   display: flex;
   flex-direction: column;

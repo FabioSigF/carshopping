@@ -1,9 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose } from 'react-icons/io5'
-import { FaApple, FaCarSide, FaCheck, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
+import { FaApple, FaArrowLeft, FaArrowRight, FaCarSide, FaCheck, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
 import { FiPhoneCall } from 'react-icons/fi'
 import { GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
+import { VscTools} from 'react-icons/vsc'
 import chevronDown from './assets/img/icons/chevron-down.svg'
 export const colors = {
   body: '#F8F8F8',
@@ -86,7 +87,7 @@ export const iconsList = {
   carOut: <IoCarOutline />,
   carSide: <FaCarSide />,
   people: <IoPeople />,
-  tools: <FaTools />,
+  tools: <VscTools />,
   chevronCircleUp: <IoChevronUpCircleOutline />,
   chevronCircleDown: <IoChevronDownCircleOutline />,
   phoneCall: <FiPhoneCall />,
@@ -102,7 +103,9 @@ export const iconsList = {
   facebook: <FaFacebookF />,
   linkedin: <FaLinkedin />,
   twitter: <FaTwitter />,
-  instagram: <FaInstagram />
+  instagram: <FaInstagram />,
+  arrowRight: <FaArrowRight />,
+  arrowLeft: <FaArrowLeft />,
 
 }
 
@@ -144,8 +147,6 @@ export const Title = styled.h2`
   color: ${colors.primary};
   font-size: ${fontSize.bodyLarge};
   font-weight: 600;
-  margin-bottom: 1rem;
-  
 `
 
 export const Subtitle = styled.h3`
@@ -153,13 +154,18 @@ export const Subtitle = styled.h3`
   font-size: ${fontSize.titleSmall};
   line-height: calc(${fontSize.bodyLarge} + .5rem);
   font-weight: 700;
-  margin-bottom: 1.5rem;
 
   @media screen and (min-width: ${deviceSize.laptopM}){
     font-size: ${fontSize.title};
     line-height: calc(${fontSize.title} + .5rem);
   }
 `
+
+export const Description = styled.p`
+  font-size: ${fontSize.body};
+  line-height: calc(${fontSize.body} + .5rem);
+`
+
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;

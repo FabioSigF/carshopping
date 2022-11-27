@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card, CardHeader, CardIcon, CardList, CardText, CardTitle, ContentWrapper, Image, Text, Wrapper } from './WhyUs.styles'
+import { Card, CardHeader, CardIcon, CardList, CardText, CardTitle, ContentWrapper, Image, Wrapper } from './WhyUs.styles'
 
 import imageContent from '../../assets/img/home/car-red.png'
-import { iconsList, Subtitle, Title } from '../../globalStyle'
+import { Description, iconsList, Subtitle, Title } from '../../globalStyle'
 
 
 export default function WhyUs() {
@@ -16,9 +16,9 @@ export default function WhyUs() {
         <Subtitle>
           Don't Waste Your Valuable Time or Money
         </Subtitle>
-        <Text>
+        <Description>
           Collaboratively leverage existing client-centric schemas integrated processes. Inter actively engineer global sources after team driven niche markets. Rapidiously processes with resource maximizing architectures.
-        </Text>
+        </Description>
         <Image src={imageContent} alt='car' />
       </ContentWrapper>
 
