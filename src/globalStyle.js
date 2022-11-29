@@ -5,6 +5,7 @@ import { FiPhoneCall } from 'react-icons/fi'
 import { GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
 import { VscTools} from 'react-icons/vsc'
+import { MdCreditScore } from 'react-icons/md'
 import chevronDown from './assets/img/icons/chevron-down.svg'
 export const colors = {
   body: '#F8F8F8',
@@ -106,7 +107,7 @@ export const iconsList = {
   instagram: <FaInstagram />,
   arrowRight: <FaArrowRight />,
   arrowLeft: <FaArrowLeft />,
-
+  creditCard: <MdCreditScore />
 }
 
 export const Container = styled.div`

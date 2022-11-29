@@ -16,6 +16,7 @@ import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard'
 import Feedback from '../../components/Feedback/Feedback'
 import News from '../../components/News/News'
+import CostumerExp from '../../components/CostumerExp/CostumerExp'
 export default function Home() {
 
   const { documents: advertises, loading } = useFetchDocuments("advertises")
@@ -94,6 +95,9 @@ export default function Home() {
         <WhyUs />
       </Container>
       {/*We're Are Ensuring The Best Customer Experience (car-dealership-2.html)*/}
+      <Container style={{ paddingTop: "7rem", paddingBottom:"10rem" }}>
+        <CostumerExp />
+      </Container>
       {/*Best Seeling Brands (car-dealership-2.html)
       + 
       Discounts - Aside (car-dealership-2.html)
