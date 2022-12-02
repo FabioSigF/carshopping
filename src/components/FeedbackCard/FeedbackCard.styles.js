@@ -1,13 +1,19 @@
 import styled from "styled-components";
-import { borderRadius, colors, fontSize } from "../../globalStyle";
+import { borderRadius, colors, deviceSize, fontSize } from "../../globalStyle";
 
 export const Wrapper = styled.div `
   padding: 2.5rem 4rem;
   background-color: ${colors.bodyBg};
   border-radius: ${borderRadius.normal};
   max-width: 680px;
-  max-height: 320px;
+  min-height: 320px;
   margin: 0 auto;
+
+  @media screen and (min-width: ${deviceSize.laptopM})
+  {
+    max-height: 320px;
+    min-height: auto;
+  }
 `
 
 export const Content = styled.div `

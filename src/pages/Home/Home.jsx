@@ -94,7 +94,6 @@ export default function Home() {
       <Container>
         <WhyUs />
       </Container>
-      {/*We're Are Ensuring The Best Customer Experience (car-dealership-2.html)*/}
       <Container style={{ paddingTop: "7rem", paddingBottom:"10rem" }}>
         <CostumerExp />
       </Container>
