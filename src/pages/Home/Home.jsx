@@ -17,6 +17,7 @@ import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard'
 import Feedback from '../../components/Feedback/Feedback'
 import News from '../../components/News/News'
 import CostumerExp from '../../components/CostumerExp/CostumerExp'
+import BestBrands from '../../components/BestBrands/BestBrands'
 export default function Home() {
 
   const { documents: advertises, loading } = useFetchDocuments("advertises")
@@ -101,6 +102,9 @@ export default function Home() {
       + 
       Discounts - Aside (car-dealership-2.html)
       */}
+      <Container>
+        <BestBrands />
+      </Container>
       {/*Our Professional Staff (index-3.html) */}
       {/*Buy Your Car Quickly And Easily (car-dealership-2.html) */}
       <Container>
