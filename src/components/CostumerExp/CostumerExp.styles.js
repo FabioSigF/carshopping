@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { borderRadius, colors, deviceSize, fontSize } from "../../globalStyle";
 
 export const Wrapper = styled.section `
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
 `
 
 export const Header = styled.div `

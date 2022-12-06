@@ -1,7 +1,7 @@
 import React from 'react'
-import { Description, Subtitle, Title } from '../../globalStyle'
+import { Description, HeaderCont, Subtitle, Title } from '../../globalStyle'
 import NewsCard from '../NewsCard'
-import { NewsList, Wrapper, Header } from './News.styles'
+import { NewsList, Wrapper } from './News.styles'
 
 import img1 from './../../assets/img/news/blog-1.jpg';
 import img2 from './../../assets/img/news/blog-2.jpg';
@@ -51,7 +51,7 @@ export default function News() {
 
   return (
     <Wrapper>
-      <Header>
+      <HeaderCont alignCenter>
         <Title>
           Recent News & Update
         </Title>
@@ -59,9 +59,9 @@ export default function News() {
           Upcoming Cars & Events
         </Subtitle>
         <Description>
-          Appropriately monetize one-to-one interfaces rather than cutting-edge portals. backward-compatible schemas through highly efficient total linkage.
+          Appropriately monetize one-to-one interfaces rather than cutting-edge portals.<br/>Backward-compatible schemas through highly efficient total linkage.
         </Description>
-      </Header>
+      </HeaderCont>
       <NewsList>
         {newsData.map((item) => (
           <NewsCard

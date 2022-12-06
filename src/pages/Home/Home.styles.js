@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, deviceSize, fontSize, pseudoElementCfg } from "../../globalStyle";
+import { colors, Container, deviceSize, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
 import bg from '../../assets/img/shapes/texture-bg.png'
 
 export const Wrapper = styled.div`
@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
+  
 `
 
 export const Background = styled.div`
@@ -56,6 +57,19 @@ export const Background = styled.div`
       border: 1px solid ${colors.primary};
       top: -5px;
       left: -5px;
+    }
+  }
+
+  .heroSlideWrapper
+  {
+    visibility: hidden;
+    opacity: 0;
+    transition: 50ms ease-in-out;
+
+    &.swiper-slide-active {
+      visibility: visible;
+      opacity: 1;
+      transition: 50ms ease-in-out;
     }
   }
 
@@ -131,28 +145,28 @@ export const Image = styled.img`
   }
 `
 
-export const Cars = styled.div `
-  display: flex;
+export const BrandsContainer = styled(Container)`
+  display: flex; 
+  align-items: center; 
   flex-direction: column;
-  justify-content: center;
-  gap: 2.5rem;
-  margin-bottom: 5rem;
+  gap: 2rem; 
+  margin-bottom: 10rem;
+  box-sizing: border-box;
+  @media screen and (min-width: ${deviceSize.laptop}) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
-export const CarsContainer = styled.div `
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
+export const OfferAside = styled.aside `
+  width: 100%;
+  max-width: 566px;
 
-  @media screen and (min-width: ${deviceSize.tablet}){
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
   @media screen and (min-width: ${deviceSize.laptop}){
-    grid-template-columns: repeat(3, 1fr);
-  
+    width: 35%;
+  }
+
+  @media screen and (min-width: ${deviceSize.laptopM}){
+    width: 30%;
   }
 `

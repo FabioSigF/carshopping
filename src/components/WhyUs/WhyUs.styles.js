@@ -20,7 +20,6 @@ export const Wrapper = styled.section`
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   margin-bottom: 1.5rem;
 `
 

@@ -1,11 +1,12 @@
 import React from 'react'
-import { Container, iconsList } from '../../globalStyle'
-import { Background, Cars, CarsContainer, Content, Hero, Image, ImageContainer, List, Subtitle, Title, Wrapper } from './Home.styles'
+import { Container, iconsList  } from '../../globalStyle'
+import { Background, BrandsContainer, Content, Hero, Image, ImageContainer, List, OfferAside, Subtitle, Title, Wrapper } from './Home.styles'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Autoplay } from 'swiper'
+import { Pagination, Autoplay, EffectFade } from 'swiper'
 import 'swiper/css';
 import 'swiper/css/pagination';
+import "swiper/css/effect-fade";
 import Button from '../../components/Button/Button'
 
 import heroImg1 from '../../assets/img/home/hero-car-1.png'
@@ -13,15 +14,16 @@ import heroImg2 from '../../assets/img/home/hero-car-2.png'
 import heroImg3 from '../../assets/img/home/hero-car-3.png'
 import WhyUs from '../../components/WhyUs/WhyUs'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
-import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard'
+
 import Feedback from '../../components/Feedback/Feedback'
 import News from '../../components/News/News'
 import CostumerExp from '../../components/CostumerExp/CostumerExp'
 import BestBrands from '../../components/BestBrands/BestBrands'
+import Offer from '../../components/Offer/Offer'
+import FeaturedCars from '../../components/FeaturedCars/FeaturedCars'
+import OurStaff from '../../components/OurStaff/OurStaff'
 export default function Home() {
-
   const { documents: advertises, loading } = useFetchDocuments("advertises")
-
   return (
     <Wrapper>
       <Background>
@@ -29,13 +31,14 @@ export default function Home() {
           <Swiper
             pagination={true}
             spaceBetween={100}
-            modules={[Pagination, Autoplay]}
+            modules={[EffectFade, Pagination, Autoplay]}
+            effect={"fade"}
             autoplay={{
               delay: 10000,
               pauseOnMouseEnter: true,
             }}
             className="mySwiper">
-            <SwiperSlide>
+            <SwiperSlide className='heroslideWrapper'>
               <Hero>
                 <Content>
                   <Title>Export Auto Service</Title>
@@ -53,7 +56,7 @@ export default function Home() {
                 </ImageContainer>
               </Hero>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='heroslideWrapper'>
               <Hero>
                 <Content>
                   <Title>Export Auto Service</Title>
@@ -71,7 +74,7 @@ export default function Home() {
                 </ImageContainer>
               </Hero>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='heroslideWrapper'>
               <Hero>
                 <Content>
                   <Title>Export Auto Service</Title>
@@ -92,42 +95,30 @@ export default function Home() {
           </Swiper>
         </Container>
       </Background>
+      <Container style={{ paddingTop: "7rem", paddingBottom: "10rem" }}>
+        <CostumerExp />
+      </Container>
+      <BrandsContainer>
+        <BestBrands />
+        <OfferAside>
+          <Offer />
+        </OfferAside>
+      </BrandsContainer>
       <Container>
         <WhyUs />
       </Container>
-      <Container style={{ paddingTop: "7rem", paddingBottom:"10rem" }}>
-        <CostumerExp />
-      </Container>
-      {/*Best Seeling Brands (car-dealership-2.html)
-      + 
-      Discounts - Aside (car-dealership-2.html)
-      */}
-      <Container>
-        <BestBrands />
-      </Container>
-      {/*Our Professional Staff (index-3.html) */}
-      {/*Buy Your Car Quickly And Easily (car-dealership-2.html) */}
-      <Container>
-        <Cars>
-          <CarsContainer>
-            {loading && <p>Carregando...</p>}
-            {advertises &&
-              advertises.map((advertise) => (
-                <AdvertiseCard
-                  advertise={advertise}
-                />
-              ))}
-            {advertises && advertises.lenght === 0 && (
-              <p>Não foram encontrados anuncios...</p>
-            )}
-          </CarsContainer>
-          <Button
-            btnStyle={'mainCta'}
-            color={'primary'}
-          >View More</Button>
-        </Cars>
-      </Container>
       <Feedback />
+      <Container style={{marginBottom: "10rem"}}>
+        <OurStaff />
+      </Container>
+      <Container>
+        <FeaturedCars 
+          carsList={advertises}
+          loading={loading}
+        />
+      </Container>
+      {/*Buy Your Car Quickly And Easily (car-dealership-2.html) */}
+
       <Container>
         <News />
       </Container>

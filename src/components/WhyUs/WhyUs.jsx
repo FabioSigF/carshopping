@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardHeader, CardIcon, CardList, CardText, CardTitle, ContentWrapper, Image, Wrapper } from './WhyUs.styles'
 
 import imageContent from '../../assets/img/home/car-red.png'
-import { Description, iconsList, Subtitle, Title } from '../../globalStyle'
+import { Description, HeaderCont, iconsList, Subtitle, Title } from '../../globalStyle'
 
 
 export default function WhyUs() {
@@ -10,12 +10,14 @@ export default function WhyUs() {
     <Wrapper>
 
       <ContentWrapper>
-        <Title>
-          Why Choose Us
-        </Title>
-        <Subtitle>
-          Don't Waste Your Valuable Time or Money
-        </Subtitle>
+        <HeaderCont>
+          <Title>
+            Why Choose Us
+          </Title>
+          <Subtitle>
+            Don't Waste Your Valuable Time or Money
+          </Subtitle>
+        </HeaderCont>
         <Description>
           Collaboratively leverage existing client-centric schemas integrated processes. Inter actively engineer global sources after team driven niche markets. Rapidiously processes with resource maximizing architectures.
         </Description>
