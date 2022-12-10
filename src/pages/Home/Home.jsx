@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, iconsList  } from '../../globalStyle'
+import { Container, iconsList } from '../../globalStyle'
 import { Background, BrandsContainer, Content, Hero, Image, ImageContainer, List, OfferAside, Subtitle, Title, Wrapper } from './Home.styles'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -22,23 +22,24 @@ import BestBrands from '../../components/BestBrands/BestBrands'
 import Offer from '../../components/Offer/Offer'
 import FeaturedCars from '../../components/FeaturedCars/FeaturedCars'
 import OurStaff from '../../components/OurStaff/OurStaff'
+import ButtonArrowCta from '../../components/ButtonArrowCta/ButtonArrowCta'
 export default function Home() {
   const { documents: advertises, loading } = useFetchDocuments("advertises")
   return (
     <Wrapper>
-      <Background>
-        <Container>
-          <Swiper
-            pagination={true}
-            spaceBetween={100}
-            modules={[EffectFade, Pagination, Autoplay]}
-            effect={"fade"}
-            autoplay={{
-              delay: 10000,
-              pauseOnMouseEnter: true,
-            }}
-            className="mySwiper">
-            <SwiperSlide className='heroslideWrapper'>
+      <Swiper
+        pagination={true}
+        spaceBetween={100}
+        modules={[EffectFade, Pagination, Autoplay]}
+        effect={"fade"}
+        autoplay={{
+          delay: 10000,
+          pauseOnMouseEnter: true,
+        }}
+        className="mySwiper">
+        <SwiperSlide className='heroSlideWrapper'>
+          <Background>
+            <Container>
               <Hero>
                 <Content>
                   <Title>Export Auto Service</Title>
@@ -49,14 +50,20 @@ export default function Home() {
                     <li>{iconsList.check} Sunroof / moonroof</li>
                     <li>{iconsList.check} Heated Seats</li>
                   </List>
-                  <Button btnStyle={'mainCta'}>Explore More</Button>
+                  <ButtonArrowCta>
+                    Explore More
+                  </ButtonArrowCta>
                 </Content>
                 <ImageContainer>
                   <Image src={heroImg1} alt='AutoHive' />
                 </ImageContainer>
               </Hero>
-            </SwiperSlide>
-            <SwiperSlide className='heroslideWrapper'>
+            </Container>
+          </Background>
+        </SwiperSlide>
+        <SwiperSlide className='heroSlideWrapper'>
+          <Background>
+            <Container>
               <Hero>
                 <Content>
                   <Title>Export Auto Service</Title>
@@ -67,14 +74,20 @@ export default function Home() {
                     <li>{iconsList.check} Sunroof / moonroof</li>
                     <li>{iconsList.check} Heated Seats</li>
                   </List>
-                  <Button btnStyle={'mainCta'}>Explore More</Button>
+                  <ButtonArrowCta>
+                    Explore More
+                  </ButtonArrowCta>
                 </Content>
                 <ImageContainer>
                   <Image src={heroImg2} alt='AutoHive' />
                 </ImageContainer>
               </Hero>
-            </SwiperSlide>
-            <SwiperSlide className='heroslideWrapper'>
+            </Container>
+          </Background>
+        </SwiperSlide>
+        <SwiperSlide className='heroSlideWrapper'>
+          <Background>
+            <Container>
               <Hero>
                 <Content>
                   <Title>Export Auto Service</Title>
@@ -85,16 +98,18 @@ export default function Home() {
                     <li>{iconsList.check} Sunroof / moonroof</li>
                     <li>{iconsList.check} Heated Seats</li>
                   </List>
-                  <Button btnStyle={'mainCta'}>Explore More</Button>
+                  <ButtonArrowCta>
+                    Explore More
+                  </ButtonArrowCta>
                 </Content>
                 <ImageContainer>
                   <Image src={heroImg3} alt='AutoHive' />
                 </ImageContainer>
               </Hero>
-            </SwiperSlide>
-          </Swiper>
-        </Container>
-      </Background>
+            </Container>
+          </Background>
+        </SwiperSlide>
+      </Swiper>
       <Container style={{ paddingTop: "7rem", paddingBottom: "10rem" }}>
         <CostumerExp />
       </Container>
@@ -108,20 +123,18 @@ export default function Home() {
         <WhyUs />
       </Container>
       <Feedback />
-      <Container style={{marginBottom: "10rem"}}>
+      <Container style={{ marginBottom: "10rem" }}>
         <OurStaff />
       </Container>
       <Container>
-        <FeaturedCars 
+        <FeaturedCars
           carsList={advertises}
           loading={loading}
         />
       </Container>
-      {/*Buy Your Car Quickly And Easily (car-dealership-2.html) */}
-
       <Container>
         <News />
       </Container>
-    </Wrapper>
+    </Wrapper >
   )
 }

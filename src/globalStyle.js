@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose } from 'react-icons/io5'
-import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
+import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaClock, FaEye, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
 import { FiPhoneCall } from 'react-icons/fi'
 import { GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
@@ -108,7 +108,9 @@ export const iconsList = {
   behance: <FaBehance />,
   arrowRight: <FaArrowRight />,
   arrowLeft: <FaArrowLeft />,
-  creditCard: <MdCreditScore />
+  creditCard: <MdCreditScore />,
+  eye: <FaEye />,
+  clock: <FaClock />
 }
 
 export const Container = styled.div`

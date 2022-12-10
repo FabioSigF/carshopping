@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../../components/Button/Button'
 
 //styles
 import { borderRadius, Container, ErrorWarning } from '../../globalStyle'
-import { Aside, AsideContent, Box, Checkbox, CheckboxField, CheckboxLabel, Content, Description, FeatureGridWrapper, Field, Form, Header, Input, Label, List, Text, Title, Wrapper } from './Advertise.styles'
+import { Aside, AsideContent, Box, ButtonWrapper, Checkbox, CheckboxField, CheckboxLabel, Content, Description, FeatureGridWrapper, Field, Form, Header, Input, Label, List, Text, Title, Wrapper } from './Advertise.styles'
 
 //hooks
 import { useInsertDocument } from '../../hooks/useInsertDocument'
@@ -134,7 +134,7 @@ export default function Advertise() {
   // window.addEventListener('scroll', scrollActive)
 
   // scrollActive()
-  
+
   return (
     <Wrapper>
       <Container className='advertisePageContainer'>
@@ -598,16 +598,18 @@ export default function Advertise() {
                 />
               </Field>
             </Box>
+            <ButtonWrapper>
             {!response.loading &&
-              <Button type='submit' btnStyle={'primary'} borderRadius={borderRadius.small}>
-                Send Advertise
-              </Button>
+                <Button type='submit'>
+                  Send Advertise
+                </Button>
             }
             {response.loading && (
-              <Button type='submit' btnStyle={'primary'} borderRadius={borderRadius.small}>
+              <Button type='submit'>
                 Wait for...
               </Button>
             )}
+            </ButtonWrapper>
             {response.error && <ErrorWarning>{response.error}</ErrorWarning>}
             {formError && <ErrorWarning>{formError}</ErrorWarning>}
           </Form>

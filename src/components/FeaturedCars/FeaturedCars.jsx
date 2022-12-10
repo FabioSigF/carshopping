@@ -2,6 +2,7 @@ import React from 'react';
 import { Description, HeaderCont, Subtitle, Title } from '../../globalStyle';
 import AdvertiseCard from '../AdvertiseCard/AdvertiseCard';
 import Button from '../Button/Button';
+import ButtonArrowCta from '../ButtonArrowCta/ButtonArrowCta';
 import { CarsContainer, Wrapper } from './FeaturedCars.styles';
 
 export default function FeaturedCars({ carsList, loading }) {
@@ -28,10 +29,11 @@ export default function FeaturedCars({ carsList, loading }) {
           <p>Não foram encontrados anuncios...</p>
         )}
       </CarsContainer>
-      <Button
-        btnStyle={'mainCta'}
-        color={'primary'}
-      >View More</Button>
+      <ButtonArrowCta
+        dark={true}
+      >
+        View More
+      </ButtonArrowCta>
     </Wrapper>
   )
 }

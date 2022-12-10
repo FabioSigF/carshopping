@@ -34,7 +34,10 @@ export default function AdvertiseCard({ advertise }) {
             {advertise.fuelType}
           </IconBox>
         </Details>
-        <Button type='button' link='/' btnStyle='primaryLight' borderRadius={borderRadius.small}>
+        <Button 
+          light={true}
+          link='/' 
+        >
           View Details
         </Button>
       </Content>

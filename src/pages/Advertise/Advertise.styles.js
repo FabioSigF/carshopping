@@ -172,4 +172,10 @@ export const Checkbox = styled.input`
 
 `
 
+export const ButtonWrapper = styled.div `
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+`
+
 

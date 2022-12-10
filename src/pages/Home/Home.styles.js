@@ -1,36 +1,11 @@
 import styled from "styled-components";
-import { colors, Container, deviceSize, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
+import { colors, Container, deviceSize, fontSize, pseudoElementCfg } from "../../globalStyle";
 import bg from '../../assets/img/shapes/texture-bg.png'
 
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-
-  
-`
-
-export const Background = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  padding-top: 1.8rem;
-  padding-bottom: 100px;
-  background: url(${bg});
-  background-size: cover;
-
-  &::before {
-    ${pseudoElementCfg}
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    background: ${colors.homeBgLinear};
-  }
 
   & .swiper-pagination {
     bottom: 0px;
@@ -64,13 +39,35 @@ export const Background = styled.div`
   {
     visibility: hidden;
     opacity: 0;
-    transition: 50ms ease-in-out;
-
+    transition: 200ms ease-in-out;
     &.swiper-slide-active {
       visibility: visible;
       opacity: 1;
-      transition: 50ms ease-in-out;
+      transition: 200ms ease-in-out;
     }
+  }
+`
+
+export const Background = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding-top: 1.8rem;
+  padding-bottom: 100px;
+  background: url(${bg});
+  background-size: cover;
+
+  &::before {
+    ${pseudoElementCfg}
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: ${colors.homeBgLinear};
   }
 
 `
@@ -90,6 +87,7 @@ export const Content = styled.div`
   color: ${colors.textLight};
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 2rem;
   
   p {

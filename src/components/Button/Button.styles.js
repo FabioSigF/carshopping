@@ -1,52 +1,48 @@
 import styled, { css } from "styled-components";
-import { borderRadius, colors, fontSize } from "../../globalStyle";
+import { borderRadius, colors, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
 
 export const Wrapper = styled.button`
 
-  height: ${props => props.height ? props.height : '2.5rem'};
-  border-radius: ${props => props.borderRadius ? props.borderRadius : 0};
+  border-radius: ${borderRadius.small};
+  background-color: ${colors.primary};
+  color: ${colors.white};
+
   font-size: ${fontSize.body};
   font-weight: 600;
   line-height: ${fontSize.body};
-
+  
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: ${colors.white};
+  justify-content: center;  
   gap: 1rem;
-
+  
+  height: ${props => props.height ? props.height : '2.5rem'};
+  overflow: hidden;
   padding-left: 1rem;
   padding-right: 1rem;
-
+  position: relative;
+  z-index: 1;
+  &::before {
+    background: ${colors.black};
+    border-radius: 50%;
+    ${pseudoElementCfg}
+    position: absolute;
+    left: -60px;
+    top: -110px;
+    width: 200%;
+    height: 200%;
+    transition: ${transition.default};
+    z-index: -1;
+  }
+  
   &:hover {
-    color: ${colors.primary}
+    &::before {
+      top: -30px;
+    }
   }
 
   ${props =>
-    props.color === 'primary' &&
-    css`
-      color: ${colors.black};
-      &:hover {
-        color: ${colors.primary}
-      }
-    `}
-
-  ${props =>
-    props.btnStyle === 'primary' &&
-    css`
-      background-color: ${colors.primary};
-      border: 1px solid ${colors.primary};
-      color: ${colors.white};
-    
-      &:hover {
-      border: 1px solid ${colors.lightGray};
-      background-color: ${colors.bodyBg};
-      color: ${colors.black};
-      }
-  `}
-    
-  ${props =>
-    props.btnStyle === 'primaryLight' &&
+    props.light &&
     css`
       background-color: ${colors.white};
       border: 1px solid ${colors.lightGray};
@@ -57,30 +53,21 @@ export const Wrapper = styled.button`
         border: 1px solid ${colors.primary};
         color: ${colors.white};
       }
+
+      &::before {
+        display: none;
+      }
   `}
 
   ${props =>
-    props.btnStyle === 'primaryDark' &&
+    props.dark &&
     css`
       background-color: ${colors.black};
-      border-radius: ${borderRadius.small};
       color: ${colors.white};
-      justify-content: center;
       &:hover {
-        background-color: ${colors.primary};
-        color: ${colors.white};
-      }
-    `}
-
-  ${props =>
-    props.btnStyle === 'outline' &&
-    css`
-      background-color: transparent;
-      border: 1px solid ${props => props.borderColor ? props.borderColor : colors.lightGray};
-      color: ${props => props.color ? props.color : colors.white};
-
-      &:hover {
-        color: ${colors.white}
+        &::before {
+          background-color: ${colors.primary};
+        }
       }
     `}
 
