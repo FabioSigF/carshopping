@@ -87,11 +87,17 @@ export default function Navbar() {
               {!user && (
                 <>
                   <Item>
-                    <Button link={'/login'} btnStyle='primary'>Login</Button>
+                    <Button 
+                      link={'/login'}
+                      small={true}
+                    >Login</Button>
                   </Item>
 
                   <Item>
-                    <Button link={'/register'} btnStyle='outline'>Register</Button>
+                    <Button 
+                      link={'/register'}
+                      small={true}
+                    >Register</Button>
                   </Item>
                 </>
               )}

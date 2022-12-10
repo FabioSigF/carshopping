@@ -37,7 +37,7 @@ export const Wrapper = styled.button`
   
   &:hover {
     &::before {
-      top: -30px;
+      top: -15px;
     }
   }
 
@@ -75,5 +75,12 @@ export const Wrapper = styled.button`
     props.height === 'large' &&
     css`
       height: 3.5rem
+    `}
+
+  ${props =>
+    props.small &&
+    css`
+      font-size: ${fontSize.small};
+      height: 2rem;
     `}
 `

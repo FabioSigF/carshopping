@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, fontSize } from "../../globalStyle";
+import { colors, fontSize, transition } from "../../globalStyle";
 
 export const Wrapper = styled.section `
   display: flex;
@@ -26,7 +26,12 @@ export const Input = styled.input `
 
 export const Submit = styled.input `
   background-color: ${colors.primary};
-  color: ${colors.white};
   border-radius: 0px 5px 5px 0px;
+  color: ${colors.white};
+  cursor: pointer;
   padding: 1rem 1rem;
+  transition: ${transition.default};
+  &:hover {
+    background-color: ${colors.black};
+  }
 `

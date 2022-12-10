@@ -31,8 +31,8 @@ export const Nav = styled.nav`
 
 export const Item = styled.li`
   a {
-    color: ${colors.textLight};
     font-size: ${fontSize.small};
+    color: ${colors.textLight};
     font-weight: 600;
     transition: ${transition};
     &:hover,
