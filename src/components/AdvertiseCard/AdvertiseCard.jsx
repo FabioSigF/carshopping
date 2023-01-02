@@ -1,17 +1,16 @@
 import React from 'react'
-import { borderRadius, iconsList } from '../../globalStyle'
+import { iconsList } from '../../globalStyle'
 import Button from '../Button/Button'
 import { Content, Details, IconBox, Price, Seller, Thumb, ThumbContainer, Title, Wrapper, Year } from './AdvertiseCard.styles'
 
 export default function AdvertiseCard({ advertise }) {
 
-  console.log(advertise);
   return (
     <Wrapper>
       <Year>{advertise.year}</Year>
       <ThumbContainer>
         <a href="#!">
-          <Thumb src={advertise.urlImage} className='advertise__thumb'/>
+          <Thumb src={advertise.urlImage} className='advertise__thumb' />
         </a>
       </ThumbContainer>
       <Content>
@@ -34,9 +33,9 @@ export default function AdvertiseCard({ advertise }) {
             {advertise.fuelType}
           </IconBox>
         </Details>
-        <Button 
+        <Button
           light={true}
-          link='/' 
+          link={`/detail/${advertise.id}`}
         >
           View Details
         </Button>

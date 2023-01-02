@@ -77,6 +77,10 @@ export const deviceSize = {
   desktop: '2560px'
 }
 
+export const margin = {
+  mheader: `70px`,
+}
+
 export const iconsList = {
   speed: <IoSpeedometerOutline />,
   steeringWheel: <GiSteeringWheel />,
