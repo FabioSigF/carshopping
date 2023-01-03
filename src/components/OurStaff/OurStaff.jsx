@@ -1,5 +1,5 @@
 import React from 'react'
-import { Description, HeaderCont, iconsList, Subtitle, Title } from '../../globalStyle'
+import { Description, HeaderCont, iconsList, TagTitle, Title } from '../../globalStyle'
 import { List, Wrapper } from './OurStaff.styles'
 import staff1 from '../../assets/img/staff/staff-1.jpg'
 import staffBg1 from '../../assets/img/staff/staff-bg-1.jpg'
@@ -121,8 +121,8 @@ export default function OurStaff() {
   return (
     <Wrapper>
       <HeaderCont alignCenter>
-        <Title>Our Professional Staff</Title>
-        <Subtitle>Autohive Cars Drivers</Subtitle>
+        <TagTitle>Our Professional Staff</TagTitle>
+        <Title>Autohive Cars Drivers</Title>
         <Description>
           Dramatically generate stand-alone convergence without cross-platform content.<br /> Meta-services before efficient intellectual capital.
         </Description>

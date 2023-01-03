@@ -1,5 +1,5 @@
 import React from 'react'
-import { Subtitle } from '../../globalStyle'
+import { Title } from '../../globalStyle'
 import { List, Wrapper } from './BestBrands.styles'
 
 import ferrari from '../../assets/img/logo/ferrari-lg.png';
@@ -51,7 +51,7 @@ export default function BestBrands() {
 
   return (
     <Wrapper>
-      <Subtitle>Best Selling Brands</Subtitle>
+      <Title>Best Selling Brands</Title>
       <List>
         {bestBrandsData.map((item) => (
           <BrandCard 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../../components/Button/Button'
-import { borderRadius, Container, Error, ErrorWarning } from '../../globalStyle'
-import { Field, FieldButton, Form, Input, Label, Title, Wrapper } from './Register.styles'
+import { borderRadius, Container, ErrorWarning } from '../../globalStyle'
+import { Field, Form, Input, Label, Title, Wrapper } from './Register.styles'
 import { useAuthentication } from '../../hooks/useAuthentication'
 
 export default function Register() {

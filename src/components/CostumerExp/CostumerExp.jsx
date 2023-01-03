@@ -1,5 +1,5 @@
 import React from 'react'
-import { iconsList, Subtitle } from '../../globalStyle'
+import { iconsList, Title } from '../../globalStyle'
 import { Content, Header , IconWrapper, Image, Item, ItemHeader, ItemTitle, List, Wrapper } from './CostumerExp.styles'
 import imageCar from '../../assets/img/cars/costumerExp.png';
 export default function CostumerExp() {
@@ -40,7 +40,7 @@ export default function CostumerExp() {
   return (
     <Wrapper>
       <Header>
-        <Subtitle>We're Are Ensuring The Best Customer Experience</Subtitle>
+        <Title>We're Are Ensuring The Best Customer Experience</Title>
       </Header>
       <Content>
         <List>

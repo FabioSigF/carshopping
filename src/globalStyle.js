@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle, css } from "styled-components";
-import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose } from 'react-icons/io5'
-import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaClock, FaEye, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTools, FaTwitter } from 'react-icons/fa'
+import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose, IoCalendarNumberOutline, IoChatboxEllipsesSharp, IoShareSocial, IoStar } from 'react-icons/io5'
+import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaClock, FaEye, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { FiPhoneCall } from 'react-icons/fi'
-import { GiSteeringWheel } from 'react-icons/gi'
+import { GiPaintBrush, GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
 import { VscTools} from 'react-icons/vsc'
 import { MdCreditScore } from 'react-icons/md'
@@ -34,6 +34,7 @@ export const colors = {
   black: '#111010',
   lightGray: '#e8e8e8',
   gray: '#7a7a7a',
+  yellow: '#FF9729'
 }
 
 export const borderRadius = {
@@ -91,6 +92,9 @@ export const iconsList = {
   carSport: <IoCarSportOutline />,
   carOut: <IoCarOutline />,
   carSide: <FaCarSide />,
+  calendar: <IoCalendarNumberOutline />,
+  color: <GiPaintBrush />,
+  chat: <IoChatboxEllipsesSharp />,
   people: <IoPeople />,
   tools: <VscTools />,
   chevronCircleUp: <IoChevronUpCircleOutline />,
@@ -114,7 +118,9 @@ export const iconsList = {
   arrowLeft: <FaArrowLeft />,
   creditCard: <MdCreditScore />,
   eye: <FaEye />,
-  clock: <FaClock />
+  clock: <FaClock />,
+  share: <IoShareSocial />,
+  star: <IoStar />,
 }
 
 export const Container = styled.div`
@@ -151,13 +157,13 @@ export const ErrorWarning = styled.p`
   background-color: ${colors.danger};
 `
 
-export const Title = styled.h2`
+export const TagTitle = styled.h3`
   color: ${colors.primary};
   font-size: ${fontSize.bodyLarge};
   font-weight: 600;
 `
 
-export const Subtitle = styled.h3`
+export const Title = styled.h2`
   color: ${colors.titleDark};
   font-size: ${fontSize.titleSmall};
   line-height: calc(${fontSize.bodyLarge} + .5rem);

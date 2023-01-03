@@ -1,5 +1,5 @@
 import React from 'react'
-import { Description, HeaderCont, Subtitle, Title } from '../../globalStyle'
+import { Description, HeaderCont, TagTitle, Title } from '../../globalStyle'
 import NewsCard from '../NewsCard'
 import { NewsList, Wrapper } from './News.styles'
 
@@ -52,12 +52,12 @@ export default function News() {
   return (
     <Wrapper>
       <HeaderCont alignCenter>
-        <Title>
+        <TagTitle>
           Recent News & Update
-        </Title>
-        <Subtitle>
+        </TagTitle>
+        <Title>
           Upcoming Cars & Events
-        </Subtitle>
+        </Title>
         <Description>
           Appropriately monetize one-to-one interfaces rather than cutting-edge portals.<br/>Backward-compatible schemas through highly efficient total linkage.
         </Description>

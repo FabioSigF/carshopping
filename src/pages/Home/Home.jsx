@@ -7,7 +7,6 @@ import { Pagination, Autoplay, EffectFade } from 'swiper'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import "swiper/css/effect-fade";
-import Button from '../../components/Button/Button'
 
 import heroImg1 from '../../assets/img/home/hero-car-1.png'
 import heroImg2 from '../../assets/img/home/hero-car-2.png'
