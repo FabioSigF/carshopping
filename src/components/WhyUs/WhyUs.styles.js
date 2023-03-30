@@ -6,8 +6,6 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
 
   @media screen and (min-width: ${deviceSize.laptopS}){
     display: grid;

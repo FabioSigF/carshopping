@@ -4,13 +4,13 @@ import bg from '../../assets/img/bg/video-bg.jpg';
 
 export const Wrapper = styled.section`
   position: relative;
-  margin-top: 14rem;
-  margin-bottom: 3rem;
+  //margin para o espaço vazado
+  margin-top: 95px;
   height: 100%;
   background-color: ${colors.black};
 
   @media screen and (min-width: ${deviceSize.mobileM}) {
-    margin-top: 10rem;
+    
   }
   `
 export const BgContainer = styled.div`

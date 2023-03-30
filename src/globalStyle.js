@@ -16,7 +16,7 @@ export const colors = {
   text: '#575757',
   textDark: '#111010',
   textLight: '#ffffffcc',
-  titleDark: '#0b163f',
+  titleDark: '#333',
   titleLight: '#fff',
   //accent: '#077765',
   success: '#5cc9a7',
@@ -82,6 +82,10 @@ export const margin = {
   mheader: `70px`,
 }
 
+export const paddingS = {
+  bSection: '4rem',
+}
+
 export const iconsList = {
   speed: <IoSpeedometerOutline />,
   steeringWheel: <GiSteeringWheel />,
@@ -123,11 +127,18 @@ export const iconsList = {
   star: <IoStar />,
 }
 
+export const SectionWrapper = styled.div `
+  background-color: ${props => props.sectionWhite ? 'white' : 'transparent'};
+  padding-top: ${paddingS.bSection};
+  padding-bottom: ${paddingS.bSection};
+`
+
 export const Container = styled.div`
     box-sizing: border-box;
     padding-left: 6%;
     padding-right: 6%;
     width: 100%;
+    
     @media screen and (min-width: ${deviceSize.mobileL}) {
       padding-left: 0;
       padding-right: 0;
