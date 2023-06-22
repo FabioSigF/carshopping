@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { borderRadius, colors, fontSize, pseudoElementCfg, transition } from "../../globalStyle";
+import { borderRadius, colors, fontSize, pseudoElementCfg, transition } from "../../../globalStyle";
 
 export const Wrapper = styled.button`
 

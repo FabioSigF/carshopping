@@ -24,11 +24,11 @@ export default function Home() {
   return (
     <Wrapper>
       <Hero />
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <Container>
           <SearchBar />
         </Container>
-      </SectionWrapper>
+      </SectionWrapper> */}
       <SectionWrapper>
         <Container>
           <FeaturedCars
@@ -37,7 +37,7 @@ export default function Home() {
           />
         </Container>
       </SectionWrapper>
-      <SectionWrapper>
+      <SectionWrapper sectionWhite>
         <Container>
           <CostumerExp />
         </Container>

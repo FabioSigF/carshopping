@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { Container } from '../../globalStyle';
-import Button from '../Button';
 import Logo from '../Logo'
 import MenuMobile from '../MenuMobile';
 
@@ -11,6 +10,8 @@ import { useAuthentication } from '../../hooks/useAuthentication';
 
 //styles
 import { Hamburger, Item, List, Nav, Wrapper } from './Header.styles'
+import ButtonLogin from '../Buttons/ButtonLogin/ButtonLogin';
+import ButtonRegister from '../Buttons/ButtonRegister/ButtonRegister';
 
 export default function Navbar() {
 
@@ -86,28 +87,30 @@ export default function Navbar() {
               )}
               {!user && (
                 <>
-                  <Item>
-                    <Button 
+                  <li>
+                    <ButtonLogin
                       link={'/login'}
-                      small={true}
-                    >Login</Button>
-                  </Item>
+                    >Login</ButtonLogin>
+                  </li>
 
-                  <Item>
-                    <Button 
+                  <li>
+                    <ButtonRegister
                       link={'/register'}
-                      small={true}
-                    >Register</Button>
-                  </Item>
+                    >
+                      Register
+                    </ButtonRegister>
+                  </li>
                 </>
               )}
             </List>
           )}
           {!showMenuDesktop && (
             <>
-              <Hamburger onClick={(e) => toggleMenuMobile(e)}>
-                <div></div>
-              </Hamburger>
+              {!openMobileMenu && (
+                <Hamburger onClick={(e) => toggleMenuMobile(e)}>
+                  <div></div>
+                </Hamburger>
+              )}
               <MenuMobile />
             </>
           )}

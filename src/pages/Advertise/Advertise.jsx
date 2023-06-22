@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import Button from '../../components/Button/Button'
+import Button from '../../components/Buttons/Button/'
 
 //styles
-import { borderRadius, Container, ErrorWarning } from '../../globalStyle'
+import { Container, ErrorWarning } from '../../globalStyle'
 import { Aside, AsideContent, Box, ButtonWrapper, Checkbox, CheckboxField, CheckboxLabel, Content, Description, FeatureGridWrapper, Field, Form, Header, Input, Label, List, Text, Title, Wrapper } from './Advertise.styles'
 
 //hooks
 import { useInsertDocument } from '../../hooks/useInsertDocument'
-import { ContextProvider, useStateContext } from '../../context/ContextProvider'
+import { useStateContext } from '../../context/ContextProvider'
 import { useRef } from 'react'
 
 export default function Advertise() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wrapper } from './ButtonArrowCta.styles'
-import buttonCtaIcon from '../../assets/img/icons/main-cta.svg'
+import buttonCtaIcon from '../../../assets/img/icons/main-cta.svg'
 import { useNavigate } from 'react-router-dom'
 
 export default function ButtonArrowCta({ title, children, dark, link }) {

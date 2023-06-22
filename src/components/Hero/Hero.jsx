@@ -14,7 +14,7 @@ import heroBg1 from '../../assets/img/bg/hero1.jpg'
 import heroBg2 from '../../assets/img/bg/hero2.jpg'
 import heroBg3 from '../../assets/img/bg/hero3.jpg'
 import { Container, iconsList } from '../../globalStyle';
-import ButtonArrowCta from '../ButtonArrowCta/ButtonArrowCta';
+import ButtonArrowCta from '../Buttons/ButtonArrowCta/ButtonArrowCta';
 
 export default function Hero() {
   return (

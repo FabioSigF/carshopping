@@ -1,7 +1,7 @@
 import React from 'react';
 import { Description, HeaderCont, TagTitle, Title } from '../../globalStyle';
 import AdvertiseCard from '../AdvertiseCard/AdvertiseCard';
-import ButtonArrowCta from '../ButtonArrowCta/ButtonArrowCta';
+import ButtonArrowCta from '../Buttons/ButtonArrowCta/ButtonArrowCta';
 import { CarsContainer, Wrapper } from './FeaturedCars.styles';
 
 export default function FeaturedCars({ carsList, loading }) {
@@ -10,9 +10,9 @@ export default function FeaturedCars({ carsList, loading }) {
     <Wrapper>
       <HeaderCont alignCenter>
         <TagTitle>Car List</TagTitle>
-        <Title>Recent cars</Title>
+        <Title>Find the Best Deals For You</Title>
         <Description>
-          Dramatically plagiarize cost effective products and impactful action items. <br/>Credibly impactful sources before frictionless.
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br/>Aut natus ad pariatur dolorem aliquam nemo perferendis dignissimos vel ullam fugit?
         </Description>
       </HeaderCont>
       <CarsContainer>

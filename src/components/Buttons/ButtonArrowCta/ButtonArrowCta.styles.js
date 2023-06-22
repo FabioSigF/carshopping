@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors, fontSize, transition } from "../../globalStyle";
+import { colors, fontSize, transition } from "../../../globalStyle";
 
 export const Wrapper = styled.a `
   color: ${colors.white};

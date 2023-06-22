@@ -4,7 +4,7 @@ import { AsideInfo, Buttons, CarHero, CarInfo, ContactForm, ContactFormInputs, F
 
 import { useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Buttons/Button/';
 import sellerImg from '../../assets/img/author/seller.jpg';
 export default function CarDetail() {
 

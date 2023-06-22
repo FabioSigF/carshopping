@@ -1,6 +1,6 @@
 import React from 'react'
 import { iconsList } from '../../globalStyle'
-import Button from '../Button/Button'
+import Button from '../Buttons/Button/'
 import { Form, Header, Wrapper } from './SearchBar.styles'
 
 export default function SearchBar() {

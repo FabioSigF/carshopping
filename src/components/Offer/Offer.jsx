@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from 'swiper';
-import Button from '../Button/Button';
+import Button from '../Buttons/Button/';
 import offerImg from '../../assets/img/offer/offer-car-1.png';
 import { borderRadius } from '../../globalStyle';
 

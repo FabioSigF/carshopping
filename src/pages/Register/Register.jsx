@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Button from '../../components/Button/Button'
+import Button from '../../components/Buttons/Button/'
 import { borderRadius, Container, ErrorWarning } from '../../globalStyle'
 import { Field, Form, Input, Label, Title, Wrapper } from './Register.styles'
 import { useAuthentication } from '../../hooks/useAuthentication'

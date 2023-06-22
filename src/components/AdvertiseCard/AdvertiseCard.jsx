@@ -1,6 +1,6 @@
 import React from 'react'
 import { iconsList } from '../../globalStyle'
-import Button from '../Button/Button'
+import Button from '../Buttons/Button/Button'
 import { Content, Details, IconBox, Price, Seller, Thumb, ThumbContainer, Title, Wrapper, Year } from './AdvertiseCard.styles'
 
 export default function AdvertiseCard({ advertise }) {

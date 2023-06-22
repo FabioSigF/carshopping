@@ -21,7 +21,6 @@ export const ContextProvider = ({ children }) => {
       }}>
       {children}
     </StateContext.Provider>
-
   )
 }
 
