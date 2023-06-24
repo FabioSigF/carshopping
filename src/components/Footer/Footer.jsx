@@ -1,9 +1,19 @@
 import React from 'react'
-import { Wrapper, Background, Social, Nav, NavList,  Navlink, } from '../../components/Footer/Footer.styles'
+
+//hooks
+import { useStateContext } from '../../context/ContextProvider'
+
+//Styles
+import { Wrapper, Background, Social, Nav, NavList, Navlink, } from '../../components/Footer/Footer.styles'
+
+//Components
 import { Container, iconsList } from '../../globalStyle'
 import Logo from '../Logo'
 
 export default function Footer() {
+
+  const { user } = useStateContext();
+
   return (
     <Wrapper>
       <Background>
@@ -29,25 +39,27 @@ export default function Footer() {
             </Social>
             <NavList>
               <li>
-                <Navlink>
+                <Navlink to="/">
                   Home
                 </Navlink>
               </li>
               <li>
-                <Navlink>
+                <Navlink to="/inventory">
                   Inventory
                 </Navlink>
               </li>
               <li>
-                <Navlink>
+                <Navlink to="/about">
                   About us
                 </Navlink>
               </li>
-              <li>
-                <Navlink>
-                  Advertise
-                </Navlink>
-              </li>
+              {user && (
+                <li>
+                  <Navlink to="/advertise">
+                    Advertise
+                  </Navlink>
+                </li>
+              )}
             </NavList>
           </Nav>
         </Container>

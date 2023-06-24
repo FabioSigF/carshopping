@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth';
 import Footer from './components/Footer/Footer'
 import Header from './components/Header'
@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <Router>
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -54,7 +54,7 @@ export default function App() {
           <Route path='/register' element={!user ? <Register /> : <Navigate to="/" />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }

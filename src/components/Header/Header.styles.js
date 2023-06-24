@@ -30,12 +30,13 @@ export const Nav = styled.nav`
 `
 
 export const Item = styled.li`
+
   a {
     color: ${colors.textLight};
     font-size: ${fontSize.smallX};
     font-weight: 700;
     text-transform: uppercase;
-    transition: ${transition};
+    transition: ${transition.default};
     &:hover,
     &.active {
       color: ${colors.white};

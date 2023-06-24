@@ -6,24 +6,27 @@ import { useState } from 'react';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard';
 import { useEffect } from 'react';
+import { Timestamp } from 'firebase/firestore';
 
 export default function Inventory() {
   const [page, setPage] = useState(1);
 
+  //Selected elements by filter
   const [brand, setBrand] = useState([]);
   const [bodyType, setBodyType] = useState([]);
   const [carModel, setCarModel] = useState([]);
   const [year, setYear] = useState([]);
   const [transmission, setTransmission] = useState([]);
 
-  const [sortBy, setSortBy] = useState("");
-  const [carList, setCarList] = useState(null);
-  //Open/Close menu
+  //Open/Close menu, state if is open o closed
   const [brandMenu, setBrandMenu] = useState(true);
   const [bodyTypeMenu, setBodyTypeMenu] = useState(false);
   const [carModelMenu, setCarModelMenu] = useState(false);
   const [yearMenu, setYearMenu] = useState(false);
   const [transmissionMenu, setTransmissionMenu] = useState(false);
+
+  //Filter Sort By
+  const [sortBy, setSortBy] = useState("Newest First");
 
   const { documents: advertises, loading } = useFetchDocuments("advertises")
 
@@ -43,26 +46,45 @@ export default function Inventory() {
     };
   }
 
-  function reorderAdvertises() {
-    if (sortBy === "Lowest Price") {
-      advertises.sort(function (a, b) {
-        if (a.price < b.price) return -1;
-        if (a.price > b.price) return 1;
-        return 0;
-      })
-    } else if (sortBy === "Highest Price") {
-      advertises.sort(function (a, b) {
-        if (a.price < b.price) return 1;
-        if (a.price > b.price) return -1;
-        return 0;
+  //Está dando erro, adicionando todas as listas presentes às novas marcas
+  const showFilterOptions = async (state, setState, section) => {
+    let list = [];
+    let obj = {};
+
+    if (!loading) {
+      advertises.forEach((item) => {
+        //Se a marca não estiver inclusa na lista
+        if (!list.includes(item[section])) {
+          setState(current => [...current, {
+            name: item[section],
+            cars: [...current, item]
+          }]);
+          list.push(item[section]);
+        }
+        //Se a marca já está inclusa na lista
+        else {
+          state.forEach(elem => {
+            if (elem.name === item[section]) {
+              obj = {
+                name: elem.name,
+                cars: elem.cars
+              }
+              obj.cars.push(item);
+
+              setState((current) => current.filter((element) => element !== item[section]));
+
+              setState((current) => [...current, obj]);
+            }
+          })
+        }
       })
     }
   }
-
   useEffect(() => {
-    reorderAdvertises();
-  }, [sortBy, advertises])
+    showFilterOptions(brand, setBrand, "brand");
+  }, [loading, advertises])
 
+  console.log(brand);
   return (
     <Container>
       <Wrapper>
@@ -73,46 +95,16 @@ export default function Inventory() {
             >
               Brand {brandMenu ? iconsList.chevronUp : iconsList.chevronDown}
             </span>
-            {brandMenu && (
-              <>
+            {brandMenu &&
+              brand.map((item) => (
                 <li>
                   <input type="checkbox" name="ferrari"
                     onClick={(e) => pushCheckboxItem(brand, setBrand, "ferrari")}
                   />
-                  <p>Ferrari</p>
+                  <p>{item.name}</p>
                 </li>
-                <li>
-                  <input type="checkbox" name="honda"
-                    onClick={(e) => pushCheckboxItem(brand, setBrand, "honda")}
-                  />
-                  <p>Honda</p>
-                </li>
-                <li>
-                  <input type="checkbox" name="hyundai"
-                    onClick={(e) => pushCheckboxItem(brand, setBrand, "hyundai")}
-                  />
-                  <p>Hyundai</p>
-                </li>
-                <li>
-                  <input type="checkbox" name="mercedes benz"
-                    onClick={(e) => pushCheckboxItem(brand, setBrand, "mercedes benz")}
-                  />
-                  <p>Mercedes Benz</p>
-                </li>
-                <li>
-                  <input type="checkbox" name="toyota"
-                    onClick={(e) => pushCheckboxItem(brand, setBrand, "toyota")}
-                  />
-                  <p>Toyota</p>
-                </li>
-                <li>
-                  <input type="checkbox" name="Volkswagen"
-                    onClick={(e) => pushCheckboxItem(brand, setBrand, "Volkswagen")}
-                  />
-                  <p>Volkswagen</p>
-                </li>
-              </>
-            )
+
+              ))
             }
           </FilterList>
           <FilterList>
@@ -266,7 +258,7 @@ export default function Inventory() {
                 onChange={(e) => {
                   setSortBy(e.target.value)
                 }}>
-                <option value="Newest first">Newest first</option>
+                <option value="Newest First">Newest First</option>
                 <option value="Lowest Price">Lowest Price</option>
                 <option value="Highest Price">Highest Price</option>
               </select>
@@ -275,16 +267,13 @@ export default function Inventory() {
 
           <List>
             {loading && <p>Carregando...</p>}
-            {advertises &&
-              advertises.map((advertise, key) => (
-                <AdvertiseCard
-                  advertise={advertise}
-                  key={key}
-                />
-              ))
-            }
-            {/* {advertises && sortBy === "Newest first" &&
-              carList
+            {advertises && sortBy === "Newest First" &&
+              advertises
+                .sort(function (a, b) {
+                  if (a.createdAt.toDate() < b.createdAt.toDate()) return 1;
+                  if (a.createdAt.toDate() > b.createdAt.toDate()) return -1;
+                  return 0;
+                })
                 .map((advertise, key) => (
                   <AdvertiseCard
                     advertise={advertise}
@@ -316,7 +305,7 @@ export default function Inventory() {
                     advertise={advertise}
                     key={key}
                   />
-                ))} */}
+                ))}
             {advertises && advertises.lenght === 0 && (
               <p>Não foram encontrados anuncios...</p>
             )}

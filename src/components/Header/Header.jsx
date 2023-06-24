@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
-import { Container } from '../../globalStyle';
-import Logo from '../Logo'
-import MenuMobile from '../MenuMobile';
 
 //hooks
 import { useStateContext } from '../../context/ContextProvider'
@@ -10,8 +7,13 @@ import { useAuthentication } from '../../hooks/useAuthentication';
 
 //styles
 import { Hamburger, Item, List, Nav, Wrapper } from './Header.styles'
+
+//Components
+import Logo from '../Logo'
+import MenuMobile from '../MenuMobile';
 import ButtonLogin from '../Buttons/ButtonLogin/ButtonLogin';
 import ButtonRegister from '../Buttons/ButtonRegister/ButtonRegister';
+import { Container } from '../../globalStyle';
 
 export default function Navbar() {
 

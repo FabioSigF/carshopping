@@ -10,79 +10,12 @@ export default function CarDetail() {
 
   const { id } = useParams();
   const { document: advertise, loading } = useFetchDocument("advertises", id);
-  const [advertiseFeatures, setAdvertiseFeatures] = useState(null);
 
-
-  useEffect(() => {
-
-    const advertiseInfo = async () => {
-      const info = await advertise;
-
-      setAdvertiseFeatures(info);
-      return info;
-    }
-
-    advertiseInfo();
-  }, [advertise, advertiseFeatures])
-
-
-  var keyInformation = [];
-
-  if (advertiseFeatures !== null) {
-
-    keyInformation = [
-      {
-        title: 'Body Type',
-        text: advertiseFeatures.vehicleType,
-        icon: iconsList.carOut
-      },
-      {
-        title: 'Mileage (Mi)',
-        text: advertiseFeatures.mileage,
-        icon: iconsList.speed
-      },
-      {
-        title: 'Transmission',
-        text: advertiseFeatures.transmission,
-        icon: iconsList.carSide
-      },
-      {
-        title: 'Condition',
-        text: advertiseFeatures.vehicleCondition,
-        icon: iconsList.clock
-      },
-      {
-        title: 'Engine',
-        text: advertiseFeatures.engine,
-        icon: iconsList.tools
-      },
-      {
-        title: 'Year',
-        text: advertiseFeatures.year,
-        icon: iconsList.calendar
-      },
-      {
-        title: 'Transmission',
-        text: advertiseFeatures.transmission,
-        icon: iconsList.steeringWheel
-      },
-      {
-        title: 'Fuel Type',
-        text: advertiseFeatures.fuelType,
-        icon: iconsList.oil
-      },
-      {
-        title: 'Color',
-        text: advertiseFeatures.color,
-        icon: iconsList.color
-      },
-    ]
-  }
   return (
     <Wrapper>
       <Container>
         {loading && <p>Carregando post...</p>}
-        {(advertise && advertiseFeatures !== null) &&
+        {advertise &&
           (
             <FlexWrapper>
               <CarInfo>
@@ -103,15 +36,72 @@ export default function CarDetail() {
                     <SectionTitle>Key Information</SectionTitle>
                     <InfoList>
                       {advertise && (
-                        keyInformation.map((item) => (
+                        <>
                           <li>
-                            <InfoListIcon>{item.icon}</InfoListIcon>
+                            <InfoListIcon>{iconsList.carOut}</InfoListIcon>
                             <div>
-                              <h6>{item.title}</h6>
-                              <p>{item.text}</p>
+                              <h6>{'Body Type'}</h6>
+                              <p>{advertise.vehicleType}</p>
                             </div>
                           </li>
-                        ))
+                          <li>
+                            <InfoListIcon>{iconsList.speed}</InfoListIcon>
+                            <div>
+                              <h6>{'Mileage (Mi)'}</h6>
+                              <p>{advertise.mileage}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.carSide}</InfoListIcon>
+                            <div>
+                              <h6>{'Transmission'}</h6>
+                              <p>{advertise.transmission}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.clock}</InfoListIcon>
+                            <div>
+                              <h6>{'Condition'}</h6>
+                              <p>{advertise.vehicleCondition}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.tools}</InfoListIcon>
+                            <div>
+                              <h6>{'Engine'}</h6>
+                              <p>{advertise.engine}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.calendar}</InfoListIcon>
+                            <div>
+                              <h6>{'Year'}</h6>
+                              <p>{advertise.year}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.steeringWheel}</InfoListIcon>
+                            <div>
+                              <h6>{'Transmission'}</h6>
+                              <p>{advertise.transmission}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.oil}</InfoListIcon>
+                            <div>
+                              <h6>{'Fuel Type'}</h6>
+                              <p>{advertise.fuelType}</p>
+                            </div>
+                          </li>
+                          <li>
+                            <InfoListIcon>{iconsList.color}</InfoListIcon>
+                            <div>
+                              <h6>{'Color'}</h6>
+                              <p>{advertise.externalColor}</p>
+                            </div>
+                          </li>
+                        </>
+
                       )}
                     </InfoList>
                   </SectionContent>
@@ -122,12 +112,12 @@ export default function CarDetail() {
                   <SectionContent>
                     <SectionTitle>Car Features</SectionTitle>
                     <FeaturesList>
-                      {advertise.features.map((item) => (
+                      {advertise.features.map((advertise) => (
                         <li>
                           <FeaturesMarked>
                             {iconsList.check}
                           </FeaturesMarked>
-                          {item}
+                          {advertise}
                         </li>
                       ))}
                     </FeaturesList>
@@ -136,14 +126,14 @@ export default function CarDetail() {
               </CarInfo>
               <AsideInfo>
                 <Price>
-                  ${advertiseFeatures.price}
-                  <span>{iconsList.eye}{advertiseFeatures.city}, {advertiseFeatures.state}</span>
+                  ${advertise.price}
+                  <span>{iconsList.eye}{advertise.city}, {advertise.state}</span>
                 </Price>
                 <SectionWrapper>
                   <Seller>
                     <SellerAvatar src={sellerImg} />
                     <SellerData>
-                      <SellerName>{advertiseFeatures.createdBy}</SellerName>
+                      <SellerName>{advertise.createdBy}</SellerName>
                       <SellerRating>
                         <span>{iconsList.star}</span>
                         <span>{iconsList.star}</span>
