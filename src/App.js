@@ -4,7 +4,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 import Footer from './components/Footer/Footer'
 import Header from './components/Header'
 import CarDetail from './pages/CarDetail/CarDetail'
-import Cart from './pages/Cart/Cart'
 import Advertise from './pages/Advertise'
 import EditCar from './pages/EditCar'
 import Home from './pages/Home'
@@ -16,6 +15,7 @@ import Search from './pages/Search/Search'
 //hooks
 import { useAuthentication } from './hooks/useAuthentication';
 import { useStateContext } from './context/ContextProvider';
+import About from './pages/About/About';
 
 export default function App() {
 
@@ -40,10 +40,10 @@ export default function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
           <Route path='/detail/:id' element={<CarDetail />} />
           <Route path='/inventory' element={<Inventory />} />
           <Route path='/search?q=' element={<Search />} />
+          <Route path='/about' element={<About />}/>
 
           {/*LOGADO*/}
           <Route path='/advertise' element={user ? <Advertise /> : <Navigate to="/login" />}  />
