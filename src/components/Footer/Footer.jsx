@@ -48,11 +48,6 @@ export default function Footer() {
                   Advertise
                 </Navlink>
               </li>
-              <li>
-                <Navlink>
-                  Dashboard
-                </Navlink>
-              </li>
             </NavList>
           </Nav>
         </Container>

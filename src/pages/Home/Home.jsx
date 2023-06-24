@@ -20,7 +20,7 @@ import Hero from '../../components/Hero/Hero'
 import SearchBar from '../../components/SearchBar/SearchBar'
 
 export default function Home() {
-  const { documents: advertises, loading } = useFetchDocuments("advertises")
+  const { documents: advertises, loading } = useFetchDocuments("advertises");
   return (
     <Wrapper>
       <Hero />

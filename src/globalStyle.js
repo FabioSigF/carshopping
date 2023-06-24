@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle, css } from "styled-components";
-import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose, IoCalendarNumberOutline, IoChatboxEllipsesSharp, IoShareSocial, IoStar } from 'react-icons/io5'
+import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose, IoCalendarNumberOutline, IoChatboxEllipsesSharp, IoShareSocial, IoStar, IoChevronDown, IoChevronUp } from 'react-icons/io5'
 import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaClock, FaEye, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { FiPhoneCall } from 'react-icons/fi'
 import { GiPaintBrush, GiSteeringWheel } from 'react-icons/gi'
@@ -103,6 +103,8 @@ export const iconsList = {
   tools: <VscTools />,
   chevronCircleUp: <IoChevronUpCircleOutline />,
   chevronCircleDown: <IoChevronDownCircleOutline />,
+  chevronDown: <IoChevronDown />,
+  chevronUp: <IoChevronUp />,
   phoneCall: <FiPhoneCall />,
   hand: <FaHandPointUp />,
   search: <IoSearch />,

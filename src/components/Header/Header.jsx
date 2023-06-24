@@ -68,16 +68,11 @@ export default function Navbar() {
                   About Us
                 </NavLink>
               </Item>
-              <Item>
-                <NavLink to='/advertise'>
-                  Advertise
-                </NavLink>
-              </Item>
               {user && (
                 <>
                   <Item>
-                    <NavLink to='/dashboard'>
-                      Dashboard
+                    <NavLink to='/advertise'>
+                      Advertise
                     </NavLink>
                   </Item>
                   <Item>

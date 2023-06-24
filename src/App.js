@@ -6,7 +6,6 @@ import Header from './components/Header'
 import CarDetail from './pages/CarDetail/CarDetail'
 import Cart from './pages/Cart/Cart'
 import Advertise from './pages/Advertise'
-import Dashboard from './pages/Dashboard'
 import EditCar from './pages/EditCar'
 import Home from './pages/Home'
 import Inventory from './pages/Inventory/Inventory'
@@ -48,7 +47,6 @@ export default function App() {
 
           {/*LOGADO*/}
           <Route path='/advertise' element={user ? <Advertise /> : <Navigate to="/login" />}  />
-          <Route path='/dashboard' element={ user ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path='/edit-car' element={user ? <EditCar /> : <Navigate to="/login" />}/>
 
           {/*NÃO LOGADO */}
