@@ -30,6 +30,7 @@ export default function FeaturedCars({ carsList, loading }) {
       </CarsContainer>
       <ButtonArrowCta
         dark={true}
+        link={"/inventory/"}
       >
         View More
       </ButtonArrowCta>

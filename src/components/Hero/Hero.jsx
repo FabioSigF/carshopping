@@ -8,18 +8,17 @@ import "swiper/css/effect-fade";
 
 //Styles
 import { Wrapper, Background, Content, Cta, List, Title } from './Hero.styles'
+import { Container, iconsList } from '../../globalStyle';
 
 //Background Images
 import heroBg1 from '../../assets/img/bg/hero1.jpg'
 import heroBg2 from '../../assets/img/bg/hero2.jpg'
 import heroBg3 from '../../assets/img/bg/hero3.jpg'
-import { Container, iconsList } from '../../globalStyle';
+
+//Components
 import ButtonArrowCta from '../Buttons/ButtonArrowCta/ButtonArrowCta';
-import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 
 export default function Hero() {
-
-  const { documents: advertise, loading } = useFetchDocuments("hero");
 
   console.log();
   return (
@@ -45,11 +44,9 @@ export default function Hero() {
                   <li>{iconsList.check} Sunroof / moonroof</li>
                   <li>{iconsList.check} Heated Seats</li>
                 </List>
-                {advertise && (
-                  <ButtonArrowCta link={"/detail/LRcd2mhEts8hE6IiKxJA"}>
+                <ButtonArrowCta link={"/detail/LRcd2mhEts8hE6IiKxJA"}>
                   See More
                 </ButtonArrowCta>
-                  )}
               </Content>
             </Container>
           </Background>

@@ -33,7 +33,9 @@ export default function Offer() {
               </Header>
               <Button 
                 btnStyle={'primary'}
-                borderRadius={borderRadius.small}>Shop Now</Button>
+                borderRadius={borderRadius.small}
+                link={"/inventory/"}
+                >Shop Now</Button>
               <Hero 
                 src={offerImg} 
                 alt=''
