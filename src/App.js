@@ -39,19 +39,19 @@ export default function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' index element={<Home />} />
           <Route path='/detail/:id' element={<CarDetail />} />
-          <Route path='/inventory' element={<Inventory />} />
+          <Route path='/inventory/' element={<Inventory />} />
           <Route path='/search?q=' element={<Search />} />
-          <Route path='/about' element={<About />}/>
+          <Route path='/about/' element={<About />}/>
 
           {/*LOGADO*/}
-          <Route path='/advertise' element={user ? <Advertise /> : <Navigate to="/login" />}  />
-          <Route path='/edit-car' element={user ? <EditCar /> : <Navigate to="/login" />}/>
+          <Route path='/advertise/' element={user ? <Advertise /> : <Navigate to="/login" />}  />
+          <Route path='/edit-car/' element={user ? <EditCar /> : <Navigate to="/login" />}/>
 
           {/*NÃO LOGADO */}
-          <Route path='/login' element={!user ?  <Login /> : <Navigate to="/" />} />
-          <Route path='/register' element={!user ? <Register /> : <Navigate to="/" />} />
+          <Route path='/login/' element={!user ?  <Login /> : <Navigate to="/" />} />
+          <Route path='/register/' element={!user ? <Register /> : <Navigate to="/" />} />
         </Routes>
         <Footer />
       </Router>

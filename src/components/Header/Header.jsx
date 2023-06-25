@@ -56,24 +56,24 @@ export default function Navbar() {
           {showMenuDesktop && (
             <List>
               <Item>
-                <NavLink to='/'>
+                <NavLink to="/" end>
                   Home
                 </NavLink>
               </Item>
               <Item>
-                <NavLink to='/inventory'>
+                <NavLink to="/inventory/">
                   Inventory
                 </NavLink>
               </Item>
               <Item>
-                <NavLink to='/about'>
+                <NavLink to='/about/'>
                   About Us
                 </NavLink>
               </Item>
               {user && (
                 <>
                   <Item>
-                    <NavLink to='/advertise'>
+                    <NavLink to='/advertise/'>
                       Advertise
                     </NavLink>
                   </Item>
@@ -86,13 +86,13 @@ export default function Navbar() {
                 <>
                   <li>
                     <ButtonLogin
-                      link={'/login'}
+                      link={'/login/'}
                     >Login</ButtonLogin>
                   </li>
 
                   <li>
                     <ButtonRegister
-                      link={'/register'}
+                      link={'/register/'}
                     >
                       Register
                     </ButtonRegister>
