@@ -78,6 +78,11 @@ export default function Navbar() {
                     </NavLink>
                   </Item>
                   <Item>
+                    <NavLink to='/profile/'>
+                      Profile
+                    </NavLink>
+                  </Item>
+                  <Item>
                     <a href="#!" onClick={logout}>Logout</a>
                   </Item>
                 </>

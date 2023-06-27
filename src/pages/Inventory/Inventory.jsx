@@ -300,46 +300,10 @@ export default function Inventory() {
                 />
               ))
             )}
-            {/* {advertises && sortBy === "Newest First" &&
-              advertises
-                .sort(function (a, b) {
-                  if (a.createdAt.toDate() < b.createdAt.toDate()) return 1;
-                  if (a.createdAt.toDate() > b.createdAt.toDate()) return -1;
-                  return 0;
-                })
-                .map((advertise, key) => (
-                  <AdvertiseCard
-                    advertise={advertise}
-                    key={key}
-                  />
-                ))}
-            {advertises && sortBy === "Highest Price" &&
-              advertises
-                .sort(function (a, b) {
-                  if (a.price < b.price) return 1;
-                  if (a.price > b.price) return -1;
-                  return 0;
-                })
-                .map((advertise, key) => (
-                  <AdvertiseCard
-                    advertise={advertise}
-                    key={key}
-                  />
-                ))}
-            {advertises && sortBy === "Lowest Price" &&
-              advertises
-                .sort(function (a, b) {
-                  if (a.price < b.price) return -1;
-                  if (a.price > b.price) return 1;
-                  return 0;
-                })
-                .map((advertise, key) => (
-                  <AdvertiseCard
-                    advertise={advertise}
-                    key={key}
-                  />
-                ))} */}
-            {advertises && advertises.lenght === 0 && (
+            {!loadingData && carList.length === 0 && (
+              <p>Não foram encontrados anuncios...</p>
+            )}
+            {loadingData === true && advertises && advertises.lenght === 0 && (
               <p>Não foram encontrados anuncios...</p>
             )}
           </List>

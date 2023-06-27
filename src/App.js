@@ -16,20 +16,21 @@ import Search from './pages/Search/Search'
 import { useAuthentication } from './hooks/useAuthentication';
 import { useStateContext } from './context/ContextProvider';
 import About from './pages/About/About';
+import Profile from './pages/Profile/Profile';
 
 export default function App() {
 
   //manipulando loading
-  const {user,setUser} = useStateContext()
+  const { user, setUser } = useStateContext()
   const { auth } = useAuthentication()
   const loadingUser = user === undefined
-  
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setUser(user)
     });
   }, [auth])
-  
+
   if (loadingUser) {
     return <p>Carregando...</p>
   }
@@ -43,14 +44,15 @@ export default function App() {
           <Route path='/detail/:id' element={<CarDetail />} />
           <Route path='/inventory/' element={<Inventory />} />
           <Route path='/search?q=' element={<Search />} />
-          <Route path='/about/' element={<About />}/>
+          <Route path='/about/' element={<About />} />
 
           {/*LOGADO*/}
-          <Route path='/advertise/' element={user ? <Advertise /> : <Navigate to="/login" />}  />
-          <Route path='/edit-car/' element={user ? <EditCar /> : <Navigate to="/login" />}/>
+          <Route path='/advertise/' element={user ? <Advertise /> : <Navigate to="/login" />} />
+          <Route path='/edit-car/' element={user ? <EditCar /> : <Navigate to="/login" />} />
+          <Route path='/profile/' element={user ? <Profile /> : <Navigate to="/login" />} />
 
           {/*NÃO LOGADO */}
-          <Route path='/login/' element={!user ?  <Login /> : <Navigate to="/" />} />
+          <Route path='/login/' element={!user ? <Login /> : <Navigate to="/" />} />
           <Route path='/register/' element={!user ? <Register /> : <Navigate to="/" />} />
         </Routes>
         <Footer />
