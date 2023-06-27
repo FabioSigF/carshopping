@@ -30,7 +30,7 @@ export const Background = styled.div`
 `
 
 export const Hero = styled.section`
-  min-height: ${`calc(100vh - ${margin.mheader})`};
+  min-height: ${`calc(1z00vh - ${margin.mheader})`};
 `
 
 export const Content = styled.div`

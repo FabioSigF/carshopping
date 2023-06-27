@@ -1,5 +1,5 @@
 import React from 'react'
-import { Filter, FilterList, Header, Label, List, Main, Search, SortBy, Wrapper } from './Inventory.styles'
+import { Filter, FilterList, Label, List, Main, Search, SortBy, Wrapper } from './Inventory.styles'
 import { Container, iconsList } from '../../globalStyle'
 import Button from '../../components/Buttons/Button'
 import { useState } from 'react';
@@ -7,18 +7,28 @@ import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard';
 import { useEffect } from 'react';
 
+import { useReducer } from 'react';
+
 export default function Inventory() {
 
   //Page info
-  const [page, setPage] = useState(1);
   const [numberOfResults, setNumberOfResults] = useState("");
 
-  //Selected elements by filter
+  //Avaible elements on each filter
   const [brand, setBrand] = useState([]);
   const [bodyType, setBodyType] = useState([]);
   const [location, setLocation] = useState([]);
   const [year, setYear] = useState([]);
   const [transmission, setTransmission] = useState([]);
+
+  //Filters of each type
+  const [brandFilter, setBrandFilter] = useState([]);
+  const [bodyTypeFilter, setBodyTypeFilter] = useState([]);
+  const [locationFilter, setLocationFilter] = useState([]);
+  const [yearFilter, setYearFilter] = useState([]);
+  const [transmissionFilter, setTransmissionFilter] = useState([]);
+
+  const [carList, setCarList] = useState([]);
 
   //Open/Close menu, state if is open o closed
   const [brandMenu, setBrandMenu] = useState(true);
@@ -27,15 +37,19 @@ export default function Inventory() {
   const [yearMenu, setYearMenu] = useState(false);
   const [transmissionMenu, setTransmissionMenu] = useState(false);
 
-  //Filter Sort By
-  const [sortBy, setSortBy] = useState("Newest First");
+  //State to listen if carList was filled
+  const [loadingData, setLoadingData] = useState(true);
 
-  const { documents: advertises, loading } = useFetchDocuments("advertises")
+  //Database
+  const { documents: advertises, loading } = useFetchDocuments("advertises");
 
-  function pushCheckboxItem(state, setState, name) {
+  //Hook to force update
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
+
+  function pushCheckboxItem(filters, setState, name) {
     let cont = 0;
 
-    state.forEach(element => {
+    filters.forEach(element => {
       if (element === name) {
         cont++;
       }
@@ -60,6 +74,81 @@ export default function Inventory() {
     })
 
   }
+
+  function sortList(sortBy) {
+    if (loadingData === false) {
+      if (carList && sortBy === "Newest First") {
+        setCarList(
+          carList.sort(function (a, b) {
+            if (a.createdAt.toDate() < b.createdAt.toDate()) return 1;
+            if (a.createdAt.toDate() > b.createdAt.toDate()) return -1;
+            return 0;
+          })
+        )
+      } else if (carList && sortBy === "Highest Price") {
+        setCarList(
+          carList.sort(function (a, b) {
+            if (a.price < b.price) return 1;
+            if (a.price > b.price) return -1;
+            return 0;
+          })
+        )
+      } else if (carList && sortBy === "Lowest Price") {
+        setCarList(
+          carList.sort(function (a, b) {
+            if (a.price < b.price) return -1;
+            if (a.price > b.price) return 1;
+            return 0;
+          })
+        )
+      }
+    } else {
+      if (advertises && sortBy === "Newest First") {
+        advertises.sort(function (a, b) {
+          if (a.createdAt.toDate() < b.createdAt.toDate()) return 1;
+          if (a.createdAt.toDate() > b.createdAt.toDate()) return -1;
+          return 0;
+        })
+      } else if (advertises && sortBy === "Highest Price") {
+
+        advertises.sort(function (a, b) {
+          if (a.price < b.price) return 1;
+          if (a.price > b.price) return -1;
+          return 0;
+        })
+      } else if (advertises && sortBy === "Lowest Price") {
+        advertises.sort(function (a, b) {
+          if (a.price < b.price) return -1;
+          if (a.price > b.price) return 1;
+          return 0;
+        })
+      }
+    }
+    forceUpdate();
+  }
+
+  function filterList() {
+    let cont = 0;
+    setCarList([]);
+    setLoadingData(false);
+    advertises.forEach((car) => {
+      if (((brandFilter.length > 0 && brandFilter.includes(car.brand)) || brandFilter.length === 0)
+        &&
+        ((bodyTypeFilter.length > 0 && bodyTypeFilter.includes(car.vehicleType)) || bodyTypeFilter.length === 0)
+        &&
+        ((locationFilter.length > 0 && locationFilter.includes(car.city)) || locationFilter.length === 0)
+        &&
+        ((yearFilter.length > 0 && yearFilter.includes(car.year)) || yearFilter.length === 0)
+        &&
+        ((transmissionFilter.length > 0 && transmissionFilter.includes(car.transmission)) || transmissionFilter.length === 0)
+      ) {
+        setCarList(current => [...current, car]);
+        cont++;
+      }
+    })
+    setNumberOfResults(cont);
+  }
+
   useEffect(() => {
     if (advertises) {
       showFilterOptions(brand, setBrand, "brand");
@@ -67,18 +156,17 @@ export default function Inventory() {
       showFilterOptions(location, setLocation, "city");
       showFilterOptions(year, setYear, "year");
       showFilterOptions(transmission, setTransmission, "transmission");
+    }
 
+    if (advertises) {
       setNumberOfResults(advertises.length);
     }
   }, [advertises]);
-  
 
   //seria para a lista de carros geradas pelo filter
   // useEffect(() => {
   //   setNumberOfResults(advertises.length);
   // }, [advertises])
-
-  console.log(numberOfResults);
 
   return (
     <Container>
@@ -94,7 +182,7 @@ export default function Inventory() {
               brand.map((item, key) => (
                 <li key={key}>
                   <input type="checkbox" name={item}
-                    onClick={() => pushCheckboxItem(brand, setBrand, item)}
+                    onClick={() => pushCheckboxItem(brandFilter, setBrandFilter, item)}
                   />
                   <p>{item}</p>
                 </li>
@@ -112,7 +200,7 @@ export default function Inventory() {
               bodyType.map((item, key) => (
                 <li key={key}>
                   <input type="checkbox" name={item}
-                    onClick={() => pushCheckboxItem(bodyType, setBodyType, item)}
+                    onClick={() => pushCheckboxItem(bodyTypeFilter, setBodyTypeFilter, item)}
                   />
                   <p>{item}</p>
                 </li>
@@ -129,7 +217,7 @@ export default function Inventory() {
               location.map((item, key) => (
                 <li key={key}>
                   <input type="checkbox" name={item}
-                    onClick={() => pushCheckboxItem(location, setLocation, item)}
+                    onClick={() => pushCheckboxItem(locationFilter, setLocationFilter, item)}
                   />
                   <p>{item}</p>
                 </li>
@@ -147,7 +235,7 @@ export default function Inventory() {
               year.map((item, key) => (
                 <li key={key}>
                   <input type="checkbox" name={item}
-                    onClick={() => pushCheckboxItem(year, setYear, item)}
+                    onClick={() => pushCheckboxItem(yearFilter, setYearFilter, item)}
                   />
                   <p>{item}</p>
                 </li>
@@ -164,7 +252,7 @@ export default function Inventory() {
               transmission.map((item, key) => (
                 <li key={key}>
                   <input type="checkbox" name={item}
-                    onClick={() => pushCheckboxItem(transmission, setTransmission, item)}
+                    onClick={() => pushCheckboxItem(transmissionFilter, setTransmissionFilter, item)}
                   />
                   <p>{item}</p>
                 </li>
@@ -174,18 +262,19 @@ export default function Inventory() {
 
           <Button
             dark
-          >Filter Result</Button>
+            onClick={filterList}
+          >
+            Filter Result
+          </Button>
         </Filter>
         <Main>
           <Search>
-            <span>Showing {page} - 2 of {numberOfResults} results </span>
+            <span>Results Found: {numberOfResults} </span>
             <SortBy>
               <Label>Sort by:</Label>
               <select name="sortby" id="sortbyInventory"
                 required
-                onChange={(e) => {
-                  setSortBy(e.target.value)
-                }}>
+                onChange={(e) => sortList(e.target.value)}>
                 <option value="Newest First">Newest First</option>
                 <option value="Lowest Price">Lowest Price</option>
                 <option value="Highest Price">Highest Price</option>
@@ -195,7 +284,23 @@ export default function Inventory() {
 
           <List>
             {loading && <p>Carregando...</p>}
-            {advertises && sortBy === "Newest First" &&
+            {loadingData === true && advertises && (
+              advertises.map((advertise, key) => (
+                <AdvertiseCard
+                  advertise={advertise}
+                  key={key}
+                />
+              ))
+            )}
+            {!loadingData && carList && (
+              carList.map((advertise, key) => (
+                <AdvertiseCard
+                  advertise={advertise}
+                  key={key}
+                />
+              ))
+            )}
+            {/* {advertises && sortBy === "Newest First" &&
               advertises
                 .sort(function (a, b) {
                   if (a.createdAt.toDate() < b.createdAt.toDate()) return 1;
@@ -233,7 +338,7 @@ export default function Inventory() {
                     advertise={advertise}
                     key={key}
                   />
-                ))}
+                ))} */}
             {advertises && advertises.lenght === 0 && (
               <p>Não foram encontrados anuncios...</p>
             )}
