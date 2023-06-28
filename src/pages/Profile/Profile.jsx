@@ -6,7 +6,7 @@ import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useEffect } from 'react';
 import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard';
 import { useState } from 'react';
-
+import avatar from '../../assets/img/author/seller.jpg'
 export default function Perfil() {
 
   const [resultsCounter, setResultsCounter] = useState("0");
@@ -26,7 +26,7 @@ export default function Perfil() {
     <Wrapper>
       <Container>
         <Dashboard>
-          <Avatar />
+          <Avatar src={avatar}/>
           <Info>
             <li>Name: {user.displayName}</li>
             <li>E-mail: {user.email}</li>

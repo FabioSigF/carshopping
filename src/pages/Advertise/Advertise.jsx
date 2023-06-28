@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import Button from '../../components/Buttons/Button/'
 
 //styles
-import { Container, ErrorWarning } from '../../globalStyle'
+import { Container, ErrorWarning, SuccessWarning } from '../../globalStyle'
 import { Aside, AsideContent, Box, ButtonWrapper, Checkbox, CheckboxField, CheckboxLabel, Content, Description, FeatureGridWrapper, Field, Form, Header, Input, Label, List, Text, Title, Wrapper } from './Advertise.styles'
 
 //hooks
 import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { useStateContext } from '../../context/ContextProvider'
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Advertise() {
 
@@ -38,8 +39,19 @@ export default function Advertise() {
   const [scrollTop, setScrollTop] = useState(0)
   const { user } = useStateContext()
   const { insertDocument, response } = useInsertDocument("advertises")
+  
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleOnPriceChange = (e) => {
+    e.target.maxLength = 12;
+    let value = e.target.value;
+    value = value.replace(/\D/g, "");
+    value = value.replace(/(\d)(\d{2})$/, "$1,$2");
+    value = value.replace(/(?=(\d{3})+(\D))\B/g, ".");
+    setPrice(value);
+  }
+
+  const handleSubmit = async(e) => {
     e.preventDefault()
     setFormError("")
 
@@ -52,30 +64,33 @@ export default function Advertise() {
     //checar todos os valores
     if (formError) return;
 
-    setPrice(formatter.format(price));
-    insertDocument({
-      description,
-      brand,
-      model,
-      year,
-      vehicleCondition,
-      transmission,
-      vehicleType,
-      fuelType,
-      mileage,
-      engine,
-      features,
-      externalColor,
-      price,
-      urlImage,
-      state,
-      city,
-      contact,
-      uid: user.uid,
-      createdBy: user.displayName
-    });
-
     //redirect homepage
+    try {
+      await insertDocument({
+        description,
+        brand,
+        model,
+        year,
+        vehicleCondition,
+        transmission,
+        vehicleType,
+        fuelType,
+        mileage,
+        engine,
+        features,
+        externalColor,
+        price,
+        urlImage,
+        state,
+        city,
+        contact,
+        uid: user.uid,
+        createdBy: user.displayName
+      });
+      navigate("/profile");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handleChecked = (e, state, setState) => {
@@ -263,6 +278,7 @@ export default function Advertise() {
                   <option value="Sport Car">Sport car</option>
                   <option value="Truck">Truck</option>
                   <option value="Van">Van</option>
+                  <option value="Luxury">Luxury</option>
                 </select>
               </Field>
               <Field>
@@ -559,9 +575,9 @@ export default function Advertise() {
                 <Label>Price (US$)</Label>
                 <Input
                   required
-                  type='number'
+                  type='string'
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(e) => handleOnPriceChange(e)}
                 />
               </Field>
             </Box>
@@ -599,16 +615,16 @@ export default function Advertise() {
               </Field>
             </Box>
             <ButtonWrapper>
-            {!response.loading &&
+              {!response.loading &&
                 <Button type='submit'>
                   Send Advertise
                 </Button>
-            }
-            {response.loading && (
-              <Button type='submit'>
-                Wait for...
-              </Button>
-            )}
+              }
+              {response.loading && (
+                <Button type='submit'>
+                  Wait for...
+                </Button>
+              )}
             </ButtonWrapper>
             {response.error && <ErrorWarning>{response.error}</ErrorWarning>}
             {formError && <ErrorWarning>{formError}</ErrorWarning>}

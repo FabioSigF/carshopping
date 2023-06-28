@@ -18,7 +18,7 @@ export const Dashboard = styled.section `
   margin-bottom: 2rem;
 `
 
-export const Avatar = styled.div `
+export const Avatar = styled.img `
   width: 100px;
   height: 100px;
   background-color: ${colors.lightGray};

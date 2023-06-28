@@ -170,6 +170,11 @@ export const ErrorWarning = styled.p`
   background-color: ${colors.danger};
 `
 
+export const SuccessWarning = styled(ErrorWarning) `
+  background-color: ${colors.success};
+  color: ${colors.black};
+`
+
 export const TagTitle = styled.h3`
   color: ${colors.primary};
   font-size: ${fontSize.bodyLarge};
