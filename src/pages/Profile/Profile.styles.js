@@ -56,3 +56,24 @@ export const Link = styled.a `
     color: ${colors.linkHover};
   }
 `
+
+export const MyAdvertise = styled.div `
+  position: relative;
+`
+export const EditButton = styled.button `
+  background-color: ${colors.primary};
+  border-radius: ${borderRadius.small};
+  color: ${colors.white};
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  top: 1rem;
+  left: 1rem;
+  font-size: 20px;
+
+  
+  &:hover {
+    cursor: pointer;
+    background-color: ${colors.linkHover};
+  }
+`

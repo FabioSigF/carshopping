@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '../../components/Buttons/Button/'
 
 //styles
-import { Container, ErrorWarning, SuccessWarning } from '../../globalStyle'
+import { Container, ErrorWarning } from '../../globalStyle'
 import { Aside, AsideContent, Box, ButtonWrapper, Checkbox, CheckboxField, CheckboxLabel, Content, Description, FeatureGridWrapper, Field, Form, Header, Input, Label, List, Text, Title, Wrapper } from './Advertise.styles'
 
 //hooks
@@ -105,12 +105,7 @@ export default function Advertise() {
 
     }
   }
-
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
-
+  
   /* SCROLL SECTIONS ON CLICK */
   const vehicleBasicInfo = useRef(null);
   const vehicleInfo = useRef(null);

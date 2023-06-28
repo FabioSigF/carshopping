@@ -48,7 +48,7 @@ export default function App() {
 
           {/*LOGADO*/}
           <Route path='/advertise/' element={user ? <Advertise /> : <Navigate to="/login" />} />
-          <Route path='/edit-car/' element={user ? <EditCar /> : <Navigate to="/login" />} />
+          <Route path='/profile/edit-car/:id' element={user ? <EditCar /> : <Navigate to="/login" />} />
           <Route path='/profile/' element={user ? <Profile /> : <Navigate to="/login" />} />
 
           {/*NÃO LOGADO */}
