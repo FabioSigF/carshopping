@@ -88,16 +88,16 @@ export default function Inventory() {
       } else if (carList && sortBy === "Highest Price") {
         setCarList(
           carList.sort(function (a, b) {
-            if (a.price < b.price) return 1;
-            if (a.price > b.price) return -1;
+            if (parseInt(a.price.split(/\D+/).join(""), 10) < (parseInt(b.price.split(/\D+/).join(""),10))) return 1;
+            if (parseInt(a.price.split(/\D+/).join(""), 10) > (parseInt(b.price.split(/\D+/).join(""),10))) return -1;
             return 0;
           })
         )
       } else if (carList && sortBy === "Lowest Price") {
         setCarList(
           carList.sort(function (a, b) {
-            if (a.price < b.price) return -1;
-            if (a.price > b.price) return 1;
+            if (parseInt(a.price.split(/\D+/).join(""), 10) < (parseInt(b.price.split(/\D+/).join(""),10))) return -1;
+            if (parseInt(a.price.split(/\D+/).join(""), 10) > (parseInt(b.price.split(/\D+/).join(""),10))) return 1;
             return 0;
           })
         )
@@ -112,14 +112,14 @@ export default function Inventory() {
       } else if (advertises && sortBy === "Highest Price") {
 
         advertises.sort(function (a, b) {
-          if (a.price < b.price) return 1;
-          if (a.price > b.price) return -1;
+          if (parseInt(a.price.split(/\D+/).join(""), 10) < (parseInt(b.price.split(/\D+/).join(""),10))) return 1;
+          if (parseInt(a.price.split(/\D+/).join(""), 10) > (parseInt(b.price.split(/\D+/).join(""),10))) return -1;
           return 0;
         })
       } else if (advertises && sortBy === "Lowest Price") {
         advertises.sort(function (a, b) {
-          if (a.price < b.price) return -1;
-          if (a.price > b.price) return 1;
+          if (parseInt(a.price.split(/\D+/).join(""), 10) < (parseInt(b.price.split(/\D+/).join(""),10))) return -1;
+          if (parseInt(a.price.split(/\D+/).join(""), 10) > (parseInt(b.price.split(/\D+/).join(""),10))) return 1;
           return 0;
         })
       }
