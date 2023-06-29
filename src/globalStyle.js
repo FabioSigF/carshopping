@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 import { IoSpeedometerOutline, IoShieldCheckmarkOutline, IoPricetagOutline, IoHeartOutline, IoCarSportOutline, IoCarOutline, IoPeople, IoChevronUpCircleOutline, IoChevronDownCircleOutline, IoSearch, IoCalculatorOutline, IoClose, IoCalendarNumberOutline, IoChatboxEllipsesSharp, IoShareSocial, IoStar, IoChevronDown, IoChevronUp } from 'react-icons/io5'
-import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaClock, FaEdit, FaEye, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaApple, FaArrowLeft, FaArrowRight, FaBehance, FaCarSide, FaCheck, FaClock, FaEdit, FaEye, FaFacebookF, FaGooglePlay, FaHandPointUp, FaInstagram, FaLinkedin, FaRegTrashAlt, FaTrash, FaTwitter } from 'react-icons/fa'
 import { FiPhoneCall } from 'react-icons/fi'
 import { GiPaintBrush, GiSteeringWheel } from 'react-icons/gi'
 import { RiOilLine } from 'react-icons/ri'
@@ -128,6 +128,7 @@ export const iconsList = {
   share: <IoShareSocial />,
   star: <IoStar />,
   edit: <FaEdit />,
+  trash: <FaRegTrashAlt />,
 }
 
 export const SectionWrapper = styled.div `

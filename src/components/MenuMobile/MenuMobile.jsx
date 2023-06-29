@@ -55,7 +55,9 @@ export default function MenuMobile() {
               </Link>
             </Item>
             <Item>
-              <Link to='/profile' onClick={logout}>
+              <Link to='/profile' onClick={() =>{
+                logout()
+                setOpenMobileMenu(!openMobileMenu)}}>
                 Logout
               </Link>
             </Item>
