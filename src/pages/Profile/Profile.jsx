@@ -8,7 +8,7 @@ import AdvertiseCard from '../../components/AdvertiseCard/AdvertiseCard';
 import { useState } from 'react';
 import avatar from '../../assets/img/author/seller.jpg'
 import { useNavigate } from 'react-router-dom';
-export default function Perfil() {
+export default function Profile() {
 
   const [resultsCounter, setResultsCounter] = useState("0");
 
@@ -31,8 +31,8 @@ export default function Perfil() {
         <Dashboard>
           <Avatar src={avatar} />
           <Info>
-            <li>Name: {user.displayName}</li>
-            <li>E-mail: {user.email}</li>
+            <li><span>Name:</span> {user.displayName}</li>
+            <li><span>E-mail:</span> {user.email}</li>
           </Info>
         </Dashboard>
 
@@ -47,10 +47,9 @@ export default function Perfil() {
               advertises
                 .filter((item) => item.uid === user.uid)
                 .map((item, key) => (
-                  <MyAdvertise>
+                  <MyAdvertise key={key}>
                     <AdvertiseCard
                       advertise={item}
-                      key={key}
                     />
                     <EditButton onClick={() => navigate(`edit-car/${item.id}`)}>{iconsList.edit}</EditButton>
                   </MyAdvertise>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, fontSize, margin } from "../../globalStyle";
+import { fontSize, margin } from "../../globalStyle";
 
 export const Wrapper = styled.div `
   margin-top: ${margin.mheader};

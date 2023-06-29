@@ -22,8 +22,8 @@ export default function StaffCard({ avatar, name, exp, social, description, back
         <Exp>{expPhrase(exp)} Experience</Exp>
       </Header>
       <List>
-        {social.map((item) => (
-          <Item>
+        {social.map((item, key) => (
+          <Item key={key}>
             <a href={item.link}>
               {item.logo}
             </a>
@@ -46,8 +46,8 @@ export default function StaffCard({ avatar, name, exp, social, description, back
           </HoverDescription>
         </div>
         <List>
-          {social.map((item) => (
-            <ItemHover>
+          {social.map((item , key) => (
+            <ItemHover key={key}>
               <a href={item.link}>
                 {item.logo}
               </a>

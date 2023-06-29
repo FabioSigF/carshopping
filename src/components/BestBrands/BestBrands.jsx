@@ -53,8 +53,9 @@ export default function BestBrands() {
     <Wrapper>
       <Title>Best Selling Brands</Title>
       <List>
-        {bestBrandsData.map((item) => (
+        {bestBrandsData.map((item, key) => (
           <BrandCard 
+            key={key}
             title={item.title}
             logo={item.logo}
           />

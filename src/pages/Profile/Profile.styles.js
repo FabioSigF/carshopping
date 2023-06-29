@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, colors, margin } from "../../globalStyle";
+import { borderRadius, colors, deviceSize, margin } from "../../globalStyle";
 
 export const Wrapper = styled.div `
   padding-top: ${margin.mheader};
@@ -8,6 +8,7 @@ export const Wrapper = styled.div `
 
 export const Dashboard = styled.section `
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   align-items: center;
 
@@ -16,6 +17,10 @@ export const Dashboard = styled.section `
   margin-top: 2rem;
   padding: 2rem;
   margin-bottom: 2rem;
+
+  @media screen and (min-width: ${deviceSize.mobileL}){
+    flex-direction: row;
+  }
 `
 
 export const Avatar = styled.img `
@@ -29,6 +34,10 @@ export const Info = styled.ul `
   display: flex;
   flex-direction: column;
   gap: .5rem;
+
+  li span {
+    font-weight: 600;
+  }
 `
 
 export const MyAdvertises = styled.section `
@@ -43,10 +52,21 @@ export const Header = styled.div `
 `
 
 export const List = styled.ul `
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 1.5rem;
-   width: 100%;
+
+  display: grid;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  
+  @media screen and (min-width: ${deviceSize.tablet}){
+    flex-direction: row;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 `
 
 export const Link = styled.a `

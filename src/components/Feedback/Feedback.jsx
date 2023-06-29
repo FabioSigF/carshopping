@@ -111,8 +111,8 @@ export default function Feedback() {
                 modules={[Navigation]}
                 spaceBetween={20}
               >
-                {feedbackCards.map((item) => (
-                  <SwiperSlide>
+                {feedbackCards.map((item, key) => (
+                  <SwiperSlide  key={key}>
                     <FeedbackCard
                       title={item.title}
                       text={item.text}

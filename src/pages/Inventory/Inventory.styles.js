@@ -1,14 +1,22 @@
 import styled from "styled-components";
-import { borderRadius, colors, fontSize, margin } from "../../globalStyle";
+import { borderRadius, colors, deviceSize, fontSize, margin } from "../../globalStyle";
 
 export const Wrapper = styled.div `
-  display: grid;
-  align-items: flex-start;
-  grid-template-columns: 30% 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   min-height: 100vh;
   margin-top: ${margin.mheader};
   padding-top: 5rem;
   padding-bottom: 2rem;
+  
+  @media screen and (min-width: ${deviceSize.laptop}) {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 30% 70%;
+    flex-direction: row;
+    gap: 0;
+  }
 `
 
 
@@ -63,7 +71,10 @@ export const Main = styled.div `
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding-left: 1.5rem;
+  
+  @media screen and (min-width: ${deviceSize.laptop}){
+    padding-left: 1.5rem;
+  }
 `
 
 export const Search = styled.div `
@@ -71,21 +82,35 @@ export const Search = styled.div `
   border-radius: ${borderRadius.normal};
 
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 1rem;
+
+  @media screen and (min-width: ${deviceSize.tablet}){
+    flex-direction : row;
+  }
+  @media screen and (min-width: ${deviceSize.laptop}) {
+    flex-direction: row;
+    gap: 0;
+  }
 `
 
 export const SortBy = styled.div `
   display: flex;
   align-items: center;
   gap: 1rem;
-  width: 40%;
   justify-content: end;
   select {
     display: block;
     position: relative;
-    min-width: 50%;
+  }
+  @media screen and (min-width: ${deviceSize.laptop}) {
+    width: 40%;
+    select {
+      min-width: 50%;
+    }
   }
 `
 
@@ -96,6 +121,10 @@ export const Label = styled.label `
 
 export const List = styled.ul `
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  flex-direction: column;
   gap: 1.5rem;
+  
+  @media screen and (min-width: ${deviceSize.mobileL}){
+    grid-template-columns: repeat(2, 1fr);
+  }
 `

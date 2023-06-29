@@ -4,18 +4,22 @@ import { useStateContext } from '../../context/ContextProvider'
 import { iconsList } from '../../globalStyle'
 import Logo from '../Logo'
 import { CloseBtn, Wrapper, Header, List, Item, Contact, Social } from './MenuMobile.styles'
+import { useAuthentication } from '../../hooks/useAuthentication'
 
 export default function MenuMobile() {
 
-  const {openMobileMenu, setOpenMobileMenu } = useStateContext()
+  const { openMobileMenu, setOpenMobileMenu, user } = useStateContext();
+
+  const { logout } = useAuthentication();
 
   const toggleMenu = (e) => {
     e.preventDefault();
     setOpenMobileMenu(!openMobileMenu)
   }
+
   return (
     <Wrapper openMenu={openMobileMenu}>
-      <CloseBtn onClick={(e)=> toggleMenu(e)}>
+      <CloseBtn onClick={(e) => toggleMenu(e)}>
         {iconsList.close}
       </CloseBtn>
       <Header>
@@ -33,33 +37,44 @@ export default function MenuMobile() {
           </Link>
         </Item>
         <Item>
-          <Link to='/service' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
-            Service
-          </Link>
-        </Item>
-        <Item>
           <Link to='/about' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
             About Us
           </Link>
         </Item>
         {/*apenas logado */}
-        <Item>
-          <Link to='/dashboard' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
-            Dashboard
-          </Link>
-        </Item>
+        {user && (
+          <>
+            <Item>
+              <Link to='/advertise' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
+                Advertise
+              </Link>
+            </Item>
+            <Item>
+              <Link to='/profile' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
+                Profile
+              </Link>
+            </Item>
+            <Item>
+              <Link to='/profile' onClick={logout}>
+                Logout
+              </Link>
+            </Item>
+          </>
+        )}
         {/*apenas deslogado */}
-        <Item>
-          <Link to='/login' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
-            Login
-          </Link>
-        </Item>
-        {/*apenas deslogado */}
-        <Item>
-          <Link to='/register' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
-            Register
-          </Link>
-        </Item>
+        {!user && (
+          <>
+            <Item>
+              <Link to='/login' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
+                Login
+              </Link>
+            </Item>
+            <Item>
+              <Link to='/register' onClick={() => setOpenMobileMenu(!openMobileMenu)}>
+                Register
+              </Link>
+            </Item>
+          </>)}
       </List>
       <Contact>
         <h2>Contact Info</h2>

@@ -130,13 +130,13 @@ export default function OurStaff() {
       <List>
         {staffData.map((item, key) => (
           <StaffCard
-            key={key}
             avatar={item.avatar}
             name={item.name}
             exp={item.exp}
             social={item.social}
             description={item.description}
             background={item.background}
+            key={key}
           />
         ))}
       </List>

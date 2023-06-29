@@ -9,7 +9,7 @@ export const Wrapper = styled.div `
 `
 
 export const FlexWrapper = styled.div `
-  @media screen and (min-width: ${deviceSize.laptopM}) {
+  @media screen and (min-width: ${deviceSize.laptop}) {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;

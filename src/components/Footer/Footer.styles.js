@@ -33,6 +33,10 @@ export const Nav = styled.nav `
   flex-direction: column;
   gap: 1rem;
   justify-content: space-between;
+
+  @media screen and (max-width: ${deviceSize.laptop}){
+    align-items: center;
+  }
 `
 
 export const Social = styled.ul `
@@ -47,6 +51,10 @@ export const Social = styled.ul `
     &:hover {
     color: ${colors.primary};
     }
+  }
+
+  @media screen and (max-width: ${deviceSize.laptop}){
+    margin-top: 1rem;
   }
 `
 

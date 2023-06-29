@@ -44,8 +44,8 @@ export default function CostumerExp() {
       </Header>
       <Content>
         <List>
-          {costumerExpItems.map((item) => (
-            <Item>
+          {costumerExpItems.map((item, key) => (
+            <Item key={key}>
               <ItemHeader>
                 <ItemTitle>{item.title}</ItemTitle>
                 <p>{item.description}</p>

@@ -63,7 +63,7 @@ export default function News() {
         </Description>
       </HeaderCont>
       <NewsList>
-        {newsData.map((item) => (
+        {newsData.map((item, key) => (
           <NewsCard
             img={item.img}
             tag={item.tag}
@@ -73,6 +73,7 @@ export default function News() {
             name={item.author.name}
             date={item.date}
             link={item.link}
+            key={key}
           />
         ))}
       </NewsList>
