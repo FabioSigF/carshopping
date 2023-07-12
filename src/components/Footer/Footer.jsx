@@ -39,23 +39,23 @@ export default function Footer() {
             </Social>
             <NavList>
               <li>
-                <Navlink to="/">
+                <Navlink href="/">
                   Home
                 </Navlink>
               </li>
               <li>
-                <Navlink to="/inventory">
+                <Navlink href="/inventory">
                   Inventory
                 </Navlink>
               </li>
               <li>
-                <Navlink to="/about">
+                <Navlink href="/about">
                   About us
                 </Navlink>
               </li>
               {user && (
                 <li>
-                  <Navlink to="/advertise">
+                  <Navlink href="/advertise">
                     Advertise
                   </Navlink>
                 </li>

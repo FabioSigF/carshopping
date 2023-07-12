@@ -10,6 +10,8 @@ import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { useStateContext } from '../../context/ContextProvider'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link } from 'react-scroll'
 
 export default function Advertise() {
 
@@ -39,7 +41,7 @@ export default function Advertise() {
   const [scrollTop, setScrollTop] = useState(0)
   const { user } = useStateContext()
   const { insertDocument, response } = useInsertDocument("advertises")
-  
+
   const navigate = useNavigate();
 
   const handleOnPriceChange = (e) => {
@@ -51,7 +53,7 @@ export default function Advertise() {
     setPrice(value);
   }
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setFormError("")
 
@@ -105,45 +107,6 @@ export default function Advertise() {
 
     }
   }
-  
-  /* SCROLL SECTIONS ON CLICK */
-  const vehicleBasicInfo = useRef(null);
-  const vehicleInfo = useRef(null);
-  const vehicleRegistration = useRef(null);
-  const vehicleFeature = useRef(null);
-  const vehiclePrice = useRef(null);
-  const vehicleLocation = useRef(null);
-
-  const scrollToSection = elementRef => {
-    window.scrollTo({
-      top: elementRef.current.offsetTop,
-      behavior: 'smooth',
-    })
-  }
-
-  /* SCROLL SECTIONS ACTIVE LINK */
-
-  //Guardamos todos os ID's de sections
-  // const sections = document.querySelectorAll('section[id]')
-  // console.log(sections[0])
-
-  // function scrollActive() {
-  //   const scrollY = window.pageYOffset
-  //   sections.forEach(current => {
-  //     const sectionHeight = current.offsetHeight
-  //     const sectionTop = current.offsetTop - 50;
-  //     const sectionId = current.getAttribute('id')
-
-  //     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-  //       document.querySelector(`a[href='#${sectionId}']`).classList.add('active')
-  //     } else {
-  //       document.querySelector(`a[href='#${sectionId}']`).classList.remove('active')
-  //     }
-  //   })
-  // }
-  // window.addEventListener('scroll', scrollActive)
-
-  // scrollActive()
 
   return (
     <Wrapper>
@@ -160,43 +123,48 @@ export default function Advertise() {
             </Header>
             <List>
               <li>
-                <a
-                  href="#vehicleBasicInfo"
-                  className='active'
-                  onClick={() => scrollToSection(vehicleBasicInfo)}
-                >Basic Info</a>
+                <Link
+                  to="vehicleBasicInfo"
+                  className='advertise__link'
+                  spy={true} smooth={true} offset={-100} duration={500}
+                >Basic Info</Link>
               </li>
               <li>
-                <a href="#vehicleInfo"
-                  onClick={() => scrollToSection(vehicleInfo)}
-                >Vehicle Information</a>
+                <Link to="vehicleInfo"
+                  className='advertise__link'
+                  spy={true} smooth={true} offset={-100} duration={500}
+                >Vehicle Information</Link>
               </li>
               <li>
-                <a href="#vehicleRegistration"
-                  onClick={() => scrollToSection(vehicleRegistration)}
-                >Registration & VIN</a>
+                <Link to="vehicleRegistration"
+                  className='advertise__link'
+                  spy={true} smooth={true} offset={-100} duration={500}
+                >Registration & VIN</Link>
               </li>
               <li>
-                <a href="#vehicleFeature"
-                  onClick={() => scrollToSection(vehicleFeature)}
-                >Select Car Features</a>
+                <Link to="vehicleFeature"
+                  className='advertise__link'
+                  spy={true} smooth={true} offset={-100} duration={500}
+                >Select Car Features</Link>
               </li>
               <li>
-                <a href="#vehiclePrice"
-                  onClick={() => scrollToSection(vehiclePrice)}
-                >Vehicle Price</a>
+                <Link to="vehiclePrice"
+                  className='advertise__link'
+                  spy={true} smooth={true} offset={-100} duration={500}
+                >Vehicle Price</Link>
               </li>
               <li>
-                <a href="#vehicleLocation"
-                  onClick={() => scrollToSection(vehicleLocation)}
-                >Location</a>
+                <Link to="vehicleLocation"
+                  className='advertise__link'
+                  spy={true} smooth={true} offset={-100} duration={500}
+                >Location</Link>
               </li>
             </List>
           </AsideContent>
         </Aside>
         <Content>
           <Form onSubmit={(e) => handleSubmit(e)}>
-            <Box ref={vehicleBasicInfo}>
+            <Box id="vehicleBasicInfo">
               <Title>Basic Info</Title>
               <Field>
                 <Label>Brand*</Label>
@@ -248,7 +216,7 @@ export default function Advertise() {
                 />
               </Field>
             </Box>
-            <Box ref={vehicleInfo}>
+            <Box id="vehicleInfo">
               <Title>Vehicle Information</Title>
               <Field>
                 <Label>Vehicle Type</Label>
@@ -333,7 +301,7 @@ export default function Advertise() {
                 />
               </Field>
             </Box>
-            <Box ref={vehicleRegistration}>
+            <Box id="vehicleRegistration">
               <Title>Vehicle Registration & VIN</Title>
               <Field>
                 <Label>Number Plate*</Label>
@@ -366,7 +334,7 @@ export default function Advertise() {
                 />
               </Field>
             </Box>
-            <Box ref={vehicleFeature}>
+            <Box id="vehicleFeature">
               <Title>Select Car Features</Title>
               <Field>
                 <Label>URL Image</Label>
@@ -555,7 +523,7 @@ export default function Advertise() {
                 </Field>
               </FeatureGridWrapper>
             </Box>
-            <Box ref={vehiclePrice}>
+            <Box id="vehiclePrice">
               <Title>Vehicle Price</Title>
               <Field>
                 <Label>Currency*</Label>
@@ -576,7 +544,7 @@ export default function Advertise() {
                 />
               </Field>
             </Box>
-            <Box ref={vehicleLocation}>
+            <Box id="vehicleLocation">
               <Title>Vehicle Location</Title>
               <Field>
                 <Label>State</Label>

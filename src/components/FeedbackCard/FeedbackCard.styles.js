@@ -6,7 +6,6 @@ export const Wrapper = styled.div `
   background-color: ${colors.bodyBg};
   border-radius: ${borderRadius.normal};
   max-width: 680px;
-  min-height: 320px;
   margin: 0 auto;
 
   @media screen and (min-width: ${deviceSize.laptopM})
@@ -26,12 +25,22 @@ export const Title = styled.h4 `
   font-size: ${fontSize.titleSmall};
   font-weight: 700;
   color: ${colors.titleDark};
+  text-align: center;
+  @media screen and (min-width: ${deviceSize.tablet}) {
+    text-align: start;
+  }
 `
 
 export const Text = styled.p `
-  font-size: ${fontSize.body};
+  font-size: ${fontSize.small};
+  text-align: center;
   line-height: ${`calc(${fontSize.body} + .5rem)`};
   margin-bottom: 2rem;
+
+  @media screen and (min-width: ${deviceSize.tablet}) {
+    font-size: ${fontSize.body};
+    text-align: start;
+  }
 `
 
 export const Author = styled.div `

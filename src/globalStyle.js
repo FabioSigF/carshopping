@@ -215,6 +215,9 @@ export const Description = styled.p`
 `
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0;
     padding: 0;

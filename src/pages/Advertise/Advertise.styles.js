@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { borderRadius, colors, deviceSize, fontSize, pseudoElementCfg } from "../../globalStyle";
+import { borderRadius, colors, deviceSize, fontSize, margin, pseudoElementCfg } from "../../globalStyle";
 
 export const Wrapper = styled.div`
   padding: 100px 0 200px;
 
   & .advertisePageContainer {
     position: relative;
-    @media screen and (min-width: ${deviceSize.laptopM}){
+    @media screen and (min-width: ${deviceSize.laptop}){
       display: grid;
       grid-template-columns: 25% 75%;
       gap: 1rem;
@@ -15,12 +15,18 @@ export const Wrapper = styled.div`
 `
 
 export const Aside = styled.aside`
-  position: relative;
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    position: sticky;
+    height: 100vh;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+  }
 `
 
 export const AsideContent = styled.div`
-  position: sticky;
-  top: 100px;
+  height: 100%;
 `
 export const Header = styled.div`
 
@@ -58,6 +64,7 @@ export const List = styled.ul`
 
   li {
     a {
+      cursor: pointer;
       color: ${colors.gray};
       font-weight: 500;
       position: relative;

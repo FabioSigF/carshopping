@@ -30,7 +30,7 @@ export const Background = styled.div`
 `
 
 export const Hero = styled.section`
-  min-height: ${`calc(1z00vh - ${margin.mheader})`};
+
 `
 
 export const Content = styled.div`
@@ -40,8 +40,8 @@ export const Content = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 1.5rem;
-  min-height: ${`calc(100vh - ${margin.mheader})`};
-
+  height: ${`calc(100vh - ${margin.mheader})`};
+  max-height: 700px;
   p {
     line-height: 1.5rem;
   }

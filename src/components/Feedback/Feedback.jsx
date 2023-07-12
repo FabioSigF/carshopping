@@ -46,7 +46,7 @@ export default function Feedback() {
   const feedbackCards = [
     {
       title: "Amazing Support!",
-      text: "Authoritatively grow accurate products rather than collaborative conterpocras tinate enterprise strategic theme areas before functionalized in Phosfluoresc based technology whereas low-risk high-yield vortals. whereas effective functionalities. Holisticly pursue cooperative.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam harum dolor explicabo iste aspernatur dolorem quisquam vero nam ea, ipsa voluptatum repellendus sunt labore obcaecati officiis excepturi laborum, doloremque odio!",
       author: {
         name: "Chris Hoang Siama",
         title: "Managing Director",
@@ -56,7 +56,7 @@ export default function Feedback() {
     },
     {
       title: "Amazing Support!",
-      text: "Authoritatively grow accurate products rather than collaborative conterpocras tinate enterprise strategic theme areas before functionalized in Phosfluoresc based technology whereas low-risk high-yield vortals. whereas effective functionalities. Holisticly pursue cooperative.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam harum dolor explicabo iste aspernatur dolorem quisquam vero nam ea, ipsa voluptatum repellendus sunt labore obcaecati officiis excepturi laborum, doloremque odio!",
       author: {
         name: "Chris Hoang Siama",
         title: "Managing Director",
@@ -66,7 +66,7 @@ export default function Feedback() {
     },
     {
       title: "Amazing Support!",
-      text: "Authoritatively grow accurate products rather than collaborative conterpocras tinate enterprise strategic theme areas before functionalized in Phosfluoresc based technology whereas low-risk high-yield vortals. whereas effective functionalities. Holisticly pursue cooperative.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam harum dolor explicabo iste aspernatur dolorem quisquam vero nam ea, ipsa voluptatum repellendus sunt labore obcaecati officiis excepturi laborum, doloremque odio!",
       author: {
         name: "Chris Hoang Siama",
         title: "Managing Director",
@@ -76,7 +76,7 @@ export default function Feedback() {
     },
     {
       title: "Amazing Support!",
-      text: "Authoritatively grow accurate products rather than collaborative conterpocras tinate enterprise strategic theme areas before functionalized in Phosfluoresc based technology whereas low-risk high-yield vortals. whereas effective functionalities. Holisticly pursue cooperative.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam harum dolor explicabo iste aspernatur dolorem quisquam vero nam ea, ipsa voluptatum repellendus sunt labore obcaecati officiis excepturi laborum, doloremque odio!",
       author: {
         name: "Chris Hoang Siama",
         title: "Managing Director",
@@ -108,7 +108,8 @@ export default function Feedback() {
             <SliderContainer>
               <Swiper
                 navigation={true}
-                modules={[Navigation]}
+                modules={[ Navigation ]}
+                className="mySwiper"
                 spaceBetween={20}
               >
                 {feedbackCards.map((item, key) => (

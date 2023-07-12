@@ -8,7 +8,6 @@ import { Description, HeaderCont, iconsList, TagTitle, Title } from '../../globa
 export default function WhyUs() {
   return (
     <Wrapper>
-
       <ContentWrapper>
         <HeaderCont>
           <TagTitle>

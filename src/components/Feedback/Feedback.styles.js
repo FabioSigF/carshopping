@@ -5,14 +5,14 @@ import bg from '../../assets/img/bg/video-bg.jpg';
 export const Wrapper = styled.section`
   position: relative;
   //margin para o espaço vazado
-  margin-top: 95px;
+  margin-top: 180px;
   height: 100%;
   background-color: ${colors.black};
 
   @media screen and (min-width: ${deviceSize.mobileM}) {
-    
+    margin-top: 95px;
   }
-  `
+`
 export const BgContainer = styled.div`
 
   display: block;
@@ -153,29 +153,25 @@ export const SliderContainer = styled.div`
     width: 40px;
     height: 40px;
     &::after{
+      position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
       color: ${colors.white};
       background-size: cover;
-      font-family: inherit;
-      font-size: 20px;
-      line-height: 15px;
-      margin-bottom: 6px;
+      font-size: 16px;
     }
-  }
-
-  .swiper-button-next
-  {
-    &::after {
-      content: '>';
-    }
-  }
-  .swiper-button-prev{
-    &::after {
-      content: '<';
-     }
   }
   
+  .swiper-button-next {
+    &::after {
+      right: 14px;
+    }
+  }
+  .swiper-button-prev {
+    &::after {
+      left: 14px;
+    }
+  }
 
 `

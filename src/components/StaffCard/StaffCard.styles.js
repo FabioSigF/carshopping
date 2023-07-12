@@ -62,13 +62,12 @@ export const List = styled.ul `
 export const Item = styled.li `
   &:hover{
     a {
-      
       color: ${colors.black};
     }
   }
   a {
     transition: ${transition.default};
-    padding: .5rem;
+    padding: .5rem .6rem;
     color: ${colors.gray};
     font-size: ${fontSize.body};
   }

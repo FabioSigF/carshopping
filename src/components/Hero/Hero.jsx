@@ -20,7 +20,6 @@ import ButtonArrowCta from '../Buttons/ButtonArrowCta/ButtonArrowCta';
 
 export default function Hero() {
 
-  console.log();
   return (
     <Wrapper>
       <Swiper

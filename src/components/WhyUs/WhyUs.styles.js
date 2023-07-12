@@ -22,6 +22,7 @@ export const ContentWrapper = styled.div`
 `
 
 export const Image = styled.img `
+  padding-top: 2rem;
   max-width: 100%;
   height: auto;
 `

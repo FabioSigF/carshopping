@@ -24,11 +24,6 @@ export default function Home() {
   return (
     <Wrapper>
       <Hero />
-      {/* <SectionWrapper>
-        <Container>
-          <SearchBar />
-        </Container>
-      </SectionWrapper> */}
       <SectionWrapper>
         <Container>
           <FeaturedCars

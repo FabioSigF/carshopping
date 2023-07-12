@@ -11,6 +11,60 @@ export default function CarDetail() {
   const { id } = useParams();
   const { document: advertise, loading } = useFetchDocument("advertises", id);
 
+  const [createdDate, setCreatedDate] = useState("");
+  function getAdvertiseDate(item) {
+    var date = item.toDate();
+    var day = date.getDate();
+    var month = (date.getMonth());
+    var year = date.getFullYear();
+
+    switch (month) {
+      case 0:
+        setCreatedDate(`January ${day}, ${year}`);
+        break;
+      case 1:
+        setCreatedDate(`February ${day}, ${year}`);
+        break;
+      case 2:
+        setCreatedDate(`March ${day}, ${year}`);
+        break;
+      case 3:
+        setCreatedDate(`April ${day}, ${year}`);
+        break;
+      case 4:
+        setCreatedDate(`May ${day}, ${year}`);
+        break;
+      case 5:
+        setCreatedDate(`June ${day}, ${year}`);
+        break;
+      case 6:
+        setCreatedDate(`July ${day}, ${year}`);
+        break;
+      case 7:
+        setCreatedDate(`August ${day}, ${year}`);
+        break;
+      case 8:
+        setCreatedDate(`September ${day}, ${year}`);
+        break;
+      case 9:
+        setCreatedDate(`October ${day}, ${year}`);
+        break;
+      case 10:
+        setCreatedDate(`November ${day}, ${year}`);
+        break;
+      case 11:
+        setCreatedDate(`December ${day}, ${year}`);
+        break;
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => {
+    if (advertise) {
+      getAdvertiseDate(advertise.createdAt);
+    }
+  }, [advertise])
   return (
     <Wrapper>
       <Container>
@@ -24,8 +78,7 @@ export default function CarDetail() {
                     <HeaderCont>
                       <Title>{`${advertise.brand} ${advertise.model}`}</Title>
                       <PublishDate>
-                        <span>{iconsList.clock}Listed on: </span>
-                        <span>{iconsList.eye}Views: 934</span>
+                        <span>{iconsList.clock}Listed on: {createdDate}</span>
                       </PublishDate>
                     </HeaderCont>
                     <Hero src={advertise.urlImage} alt={advertise.title} />
@@ -112,8 +165,8 @@ export default function CarDetail() {
                   <SectionContent>
                     <SectionTitle>Car Features</SectionTitle>
                     <FeaturesList>
-                      {advertise.features.map((advertise) => (
-                        <li>
+                      {advertise.features.map((advertise, key) => (
+                        <li key={key}>
                           <FeaturesMarked>
                             {iconsList.check}
                           </FeaturesMarked>

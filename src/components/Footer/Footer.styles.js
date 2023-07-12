@@ -43,7 +43,7 @@ export const Social = styled.ul `
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 2rem;
 
   a {
     color: ${colors.white};
