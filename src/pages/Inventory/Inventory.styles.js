@@ -40,7 +40,8 @@ export const FilterList = styled.ul `
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
+  height: 100%;
+  transition: all 200ms ease-in-out;
   &:not(:last-of-type)
   {
     border-bottom: 1px solid ${colors.lightGray};

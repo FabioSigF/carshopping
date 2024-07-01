@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
 
 //hooks
 import { useStateContext } from '../../context/ContextProvider'
@@ -14,13 +13,32 @@ import MenuMobile from '../MenuMobile';
 import ButtonLogin from '../Buttons/ButtonLogin/ButtonLogin';
 import ButtonRegister from '../Buttons/ButtonRegister/ButtonRegister';
 import { Container } from '../../globalStyle';
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
 
   const [showMenuDesktop, setShowMenuDesktop] = useState(false);
+  const [changeColor, setChangeColor] = useState();
+
   const { user } = useStateContext()
   const { logout } = useAuthentication()
   const { screenSize, setScreenSize, openMobileMenu, setOpenMobileMenu } = useStateContext();
+
+  //Show menu mobile
+  const toggleMenuMobile = (e) => {
+    e.preventDefault()
+    setOpenMobileMenu(!openMobileMenu);
+  }
+
+  //Header transparent to solid when scroll page
+  function scrollPosition() {
+    if (window.scrollY > 10) {
+      setChangeColor(true);
+    }
+    else {
+      setChangeColor(false);
+    }
+  }
 
   //Save window width
   useEffect(() => {
@@ -28,6 +46,8 @@ export default function Navbar() {
     window.addEventListener('resize', handleResize);
 
     handleResize();
+
+    window.addEventListener('scroll', scrollPosition);
 
     return () => window.removeEventListener('resize', handleResize)
 
@@ -42,14 +62,8 @@ export default function Navbar() {
     }
   }, [screenSize])
 
-  //Show menu mobile
-  const toggleMenuMobile = (e) => {
-    e.preventDefault()
-    setOpenMobileMenu(!openMobileMenu);
-  }
-
   return (
-    <Wrapper>
+    <Wrapper className={changeColor ? "header_scroll" : ''}>
       <Container>
         <Nav>
           <Logo />

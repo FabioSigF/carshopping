@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { borderRadius, colors, fontSize, margin, pseudoElementCfg, transition } from "../../globalStyle";
 
 export const Wrapper = styled.header`
-  background-color: ${colors.secondary};
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(17,16,16,0.5);
   width: 100%;
   max-width: 100vw;
   height: ${margin.mheader};
@@ -14,6 +13,13 @@ export const Wrapper = styled.header`
   left: 0;
   right: 0;
   z-index: 9999;
+  transition: all 200ms ease-in-out;
+
+  &.header_scroll {
+    background: ${colors.secondary};
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 200ms ease-in-out;
+  }
 `
 
 export const List = styled.ul`

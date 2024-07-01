@@ -40,7 +40,7 @@ export const Content = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 1.5rem;
-  height: ${`calc(100vh - ${margin.mheader})`};
+  height: 100vh;
   max-height: 700px;
   p {
     line-height: 1.5rem;

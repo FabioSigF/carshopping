@@ -162,11 +162,6 @@ export default function Inventory() {
     }
   }, [advertises]);
 
-  //seria para a lista de carros geradas pelo filter
-  // useEffect(() => {
-  //   setNumberOfResults(advertises.length);
-  // }, [advertises])
-
   return (
     <Container>
       <Wrapper>
